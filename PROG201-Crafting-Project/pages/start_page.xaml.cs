@@ -13,20 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PROG201_Crafting_Project
+namespace PROG201_Crafting_Project.pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for start_page.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class start_page : Page
     {
-        UI UINav;
-        public MainWindow()
+        public start_page()
         {
             InitializeComponent();
-            UINav = new UI(Main);
-            UINav.update_page("start");
         }
-
     }
 }
