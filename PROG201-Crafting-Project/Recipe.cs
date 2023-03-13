@@ -10,6 +10,10 @@ namespace PROG201_Crafting_Project
     {
         public string Name { get; set; }
 
+        public string Desc { get; set; }
+
+        public int Value { get; set; }
+
         public List<Item> Ingredients { get; set; }
     }
 }

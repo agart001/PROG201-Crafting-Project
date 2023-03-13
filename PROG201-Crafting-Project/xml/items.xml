@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AllItems>
+	<player>
+		<items>
+			<item name="Blue Dye" desc="A bottle of blue dye" value="15"></item>
+			<item name="Red Dye" desc="A bottle of red dye" value="15"></item>
+			<item name="Green Dye" desc="A bottle of green dye" value="15"></item>
+		</items>
+	</player>
+
+	<npc1>
+		<item name="Red Dye" desc="A bottle of red dye" value="15"></item>
+		<item name="Purple Dye" desc="A bottle of purple dye" value="30"></item>
+	</npc1>
+</AllItems>
