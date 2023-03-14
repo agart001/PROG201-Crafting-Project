@@ -4,9 +4,9 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+using System.Xml;
+using System.IO;
 using static System.Console;
-using System.Windows.Media.Imaging;
 
 namespace PROG201_Crafting_Project
 {
@@ -76,8 +76,67 @@ namespace PROG201_Crafting_Project
             }
         }
 
+        public static List<Item> LoadItemsXML(string FileName, string NodePath)
+        {
+            string path = "../../../xml/" + FileName + ".xml";
+            List<Item> Items = new List<Item>();
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNode root = xml.DocumentElement;
+            XmlNodeList ItemsList = root.SelectNodes("/AllItems/"+NodePath+"/items/item");
+            xml.AppendChild(root);
+            foreach (XmlElement _item in ItemsList)
+            {
+                int value = Convert.ToInt32(_item.GetAttribute("value"));
+                //add the instance to the list that will be returned from method
+                Items.Add(new Item
+                {
+                    //object initialization with public class fields
+                    Name = _item.GetAttribute("name"),
+                    Desc = _item.GetAttribute("desc"),
+                    Value = value
+                });
+            }
 
+            return Items;
+        }
 
+        public static List<Recipe> LoadRecipesXML()
+        {
+            string path = "../../../xml/recipes.xml";
+            List<Recipe> Recipes = new List<Recipe>();
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNode root = xml.DocumentElement;
+            XmlNodeList RecipeList = root.SelectNodes("/recipes/recipe");
+            xml.AppendChild(root);
+            foreach (XmlElement _recipe in RecipeList)
+            {
+                int _value = Convert.ToInt32(_recipe.GetAttribute("value"));
+
+                XmlNodeList IngredientsList = _recipe.SelectNodes("ingredients/ingredient");
+                List<Item> _ingredients = GetIngredients(IngredientsList);
+                //add the instance to the list that will be returned from method
+                Recipes.Add(new Recipe
+                {
+                    //object initialization with public class fields
+                    Name = _recipe.GetAttribute("name"),
+                    Desc = _recipe.GetAttribute("desc"),
+                    Value = _value,
+                    Ingredients = _ingredients
+                });
+            }
+
+            return Recipes;
+        }
+
+        static List<Item> GetIngredients(XmlNodeList List)
+        {
+            List<Item> Ingredients = new List<Item>();
+
+            foreach (XmlElement _ingredient in List)
+            {
+                int _value = Convert.ToInt32(_ingredient.GetAttribute("value"));
 
     }
 }

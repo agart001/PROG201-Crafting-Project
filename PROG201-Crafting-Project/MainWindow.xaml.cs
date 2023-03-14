@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static PROG201_Crafting_Project.Utility;
 
 namespace PROG201_Crafting_Project
 {
@@ -26,6 +27,12 @@ namespace PROG201_Crafting_Project
             InitializeComponent();
             UINav = new UI(Main);
             UINav.update_page("start");
+
+            Character player = new Character("Alex", 1000, 0, "items", "player");
+            Craft crafter = new Craft();
+
+            bool craft = crafter.CheckCraftability(player.Inventory, 0);
+            int b = 5;
         }
 
     }

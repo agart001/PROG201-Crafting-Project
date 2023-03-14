@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<recipes>
+	<recipe name="Purple Dye" desc="A bottle of purple dye" value="30">
+		<ingredients>
+			<ingredient name="Red Dye" desc="A bottle of red dye" value="15"></ingredient>
+			<ingredient name="Blue Dye" desc="A bottle of blue dye" value="15"></ingredient>
+		</ingredients>
+	</recipe>
+</recipes>
