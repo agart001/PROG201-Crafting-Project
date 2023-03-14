@@ -8,11 +8,8 @@ namespace PROG201_Crafting_Project
 {
     internal class Recipe
     {
-        public string Name { get; set; }
 
-        public string Desc { get; set; }
-
-        public int Value { get; set; }
+        public Item Result { get; set; }
 
         public List<Item> Ingredients { get; set; }
     }

@@ -31,7 +31,7 @@ namespace PROG201_Crafting_Project
             Character player = new Character("Alex", 1000, 0, "items", "player");
             Craft crafter = new Craft();
 
-            bool craft = crafter.CheckCraftability(player.Inventory, 0);
+            crafter.CraftItem(player.Inventory, 0);
             int b = 5;
         }
 

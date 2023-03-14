@@ -120,9 +120,12 @@ namespace PROG201_Crafting_Project
                 Recipes.Add(new Recipe
                 {
                     //object initialization with public class fields
-                    Name = _recipe.GetAttribute("name"),
-                    Desc = _recipe.GetAttribute("desc"),
-                    Value = _value,
+                    Result = new Item
+                    {
+                        Name = _recipe.GetAttribute("name"),
+                        Desc = _recipe.GetAttribute("desc"),
+                        Value = _value
+                    },
                     Ingredients = _ingredients
                 });
             }
@@ -137,6 +140,17 @@ namespace PROG201_Crafting_Project
             foreach (XmlElement _ingredient in List)
             {
                 int _value = Convert.ToInt32(_ingredient.GetAttribute("value"));
+
+                Ingredients.Add(new Item
+                {
+                    Name = _ingredient.GetAttribute("name"),
+                    Desc = _ingredient.GetAttribute("desc"),
+                    Value = _value
+                });
+            }
+
+            return Ingredients;
+        }
 
     }
 }
