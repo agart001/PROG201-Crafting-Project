@@ -21,18 +21,16 @@ namespace PROG201_Crafting_Project
     /// </summary>
     public partial class MainWindow : Window
     {
-        UI UINav;
+        public static UI UINav;
+        public static Game Game;
         public MainWindow()
         {
             InitializeComponent();
+
             UINav = new UI(Main);
-            UINav.update_page("start");
+            Game = new Game();
 
-            Character player = new Character("Alex", 1000, 0, "items", "player");
-            Craft crafter = new Craft();
-
-            crafter.CraftItem(player.Inventory, 0);
-            int b = 5;
+            UINav.UpdatePage("start");
         }
 
     }

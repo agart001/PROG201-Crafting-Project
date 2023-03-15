@@ -9,6 +9,7 @@
       Title="start_page">
 
     <Grid Background="#FF74C245">
-        
+        <Button Content="Craft" HorizontalAlignment="Left" Margin="327,310,0,0" VerticalAlignment="Top" Height="46" Width="73" Click="Button_Click"/>
+
     </Grid>
 </Page>

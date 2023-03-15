@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PROG201_Crafting_Project
 {
-    internal class Recipe
+    public class Recipe
     {
 
         public Item Result { get; set; }

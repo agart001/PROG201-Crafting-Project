@@ -16,18 +16,28 @@ using System.Windows.Shapes;
 namespace PROG201_Crafting_Project.pages
 {
     /// <summary>
-    /// Interaction logic for start_page.xaml
+    /// Interaction logic for craft_page.xaml
     /// </summary>
-    public partial class start_page : Page
+    public partial class craft_page : Page
     {
-        public start_page()
+        Craft Crafter = new Craft();
+        public craft_page()
         {
             InitializeComponent();
+
+            RefreshTextBlocks();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.UINav.UpdatePage("craft");
+            Crafter.CraftItem(MainWindow.Game.Player.Inventory, 0);
+            RefreshTextBlocks();
+        }
+
+        void RefreshTextBlocks()
+        {
+            MainWindow.UINav.InventoryInfo(MainWindow.Game.Player, tb_inventory);
+            MainWindow.UINav.RecipeInfo(Crafter.CheckRecipes(MainWindow.Game.Player.Inventory), tb_recipe);
         }
     }
 }

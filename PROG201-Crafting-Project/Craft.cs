@@ -9,7 +9,7 @@ namespace PROG201_Crafting_Project
 {
     internal class Craft
     {
-        List<Recipe> Recipes = new List<Recipe>();
+        public List<Recipe> Recipes = new List<Recipe>();
 
         public Craft()
         {
@@ -25,12 +25,10 @@ namespace PROG201_Crafting_Project
         }
         //--
 
-        void RemoveCraftItems(List<Item> _inventory, Recipe _recipe)
+        void ExchangeItems(List<Item> _inventory, Recipe _recipe)
         {
-            foreach (Item ingredient in _recipe.Ingredients) 
-            { 
-                _inventory.Remove(ingredient);
-            }
+            _inventory.RemoveAll(i_item => _recipe.Ingredients.Any(r_item => i_item.Name == r_item.Name));
+            _inventory.Add(_recipe.Result);
         }
 
         public void CraftItem(List<Item> _inventory, int r_index)
@@ -39,9 +37,23 @@ namespace PROG201_Crafting_Project
 
             if(CheckCraftability(_inventory, _recipe))
             {
-                RemoveCraftItems(_inventory, _recipe);
-                _inventory.Add(_recipe.Result);
+                ExchangeItems(_inventory, _recipe);
             }
+        }
+
+        public List<Recipe> CheckRecipes(List<Item> _inventory)
+        {
+            List<Recipe> _recipes = new List<Recipe>();
+
+            foreach(Recipe _recipe in Recipes) 
+            {
+                if(CheckCraftability(_inventory, _recipe))
+                {
+                    _recipes.Add(_recipe);
+                }
+            }
+
+            return _recipes;
         }
     }
 }

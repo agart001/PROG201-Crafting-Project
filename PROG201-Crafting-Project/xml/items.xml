@@ -9,7 +9,9 @@
 	</player>
 
 	<npc1>
-		<item name="Red Dye" desc="A bottle of red dye" value="15"></item>
-		<item name="Purple Dye" desc="A bottle of purple dye" value="30"></item>
+		<items>
+			<item name="Red Dye" desc="A bottle of red dye" value="15"></item>
+			<item name="Purple Dye" desc="A bottle of purple dye" value="30"></item>
+		</items>
 	</npc1>
 </AllItems>

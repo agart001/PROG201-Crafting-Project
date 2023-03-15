@@ -10,7 +10,7 @@ using System.Windows.Media.Imaging;
 
 namespace PROG201_Crafting_Project
 {
-    internal class UI
+    public class UI
     {
         Frame main;
 
@@ -20,14 +20,14 @@ namespace PROG201_Crafting_Project
         }
 
         //update game page
-        public void update_page(string _page)
+        public void UpdatePage(string _page)
         {
             string page = "pages/" + _page + "_page.xaml";
             Uri uri = new Uri(page, UriKind.Relative);
             main.Source = uri;
         }
 
-        public void toggle_vis(UIElement element)
+        public void ToggleVis(UIElement element)
         {
             Visibility show = Visibility.Visible;
             Visibility hide = Visibility.Hidden;
@@ -44,7 +44,7 @@ namespace PROG201_Crafting_Project
             }
         }
 
-        public void inventory_info(Character actor, TextBlock textblock)
+        public void InventoryInfo(Character actor, TextBlock textblock)
         {
             textblock.Text = string.Empty;
 
@@ -57,6 +57,22 @@ namespace PROG201_Crafting_Project
                     "Name: {" + item.Name +
                     "} Value: {" + item.Value + "} \n\r" +
                     "Desc: (" + item.Desc + ") \n\r";
+            }
+        }
+
+        public void RecipeInfo(List<Recipe> _recipes, TextBlock textblock)
+        {
+            textblock.Text = string.Empty;
+
+            int i = 0;
+            foreach (Recipe _recipe in _recipes)
+            {
+                i++;
+                Item _result = _recipe.Result;
+                textblock.Text += "Item #" + i + ":" + "\n\r" +
+                    "Name: {" + _result.Name +
+                    "} Value: {" + _result.Value + "} \n\r" +
+                    "Desc: (" + _result.Desc + ") \n\r";
             }
         }
 

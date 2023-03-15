@@ -8,7 +8,7 @@ using static PROG201_Crafting_Project.Utility;
 
 namespace PROG201_Crafting_Project
 {
-    internal class Character
+    public class Character
     {
         public string Name { get; set; }
 
