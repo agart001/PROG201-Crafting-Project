@@ -9,7 +9,8 @@
       Title="start_page">
 
     <Grid Background="#FF74C245">
-        <Button Content="Craft" HorizontalAlignment="Left" Margin="327,310,0,0" VerticalAlignment="Top" Height="46" Width="73" Click="Button_Click"/>
+        <Button Content="Craft" HorizontalAlignment="Left" Margin="115,329,0,0" VerticalAlignment="Top" Height="46" Width="73" Click="Craft_Click"/>
+        <Button Content="Inventory" HorizontalAlignment="Left" Margin="459,329,0,0" VerticalAlignment="Top" Height="46" Width="73" Click="Inventory_Click"/>
 
     </Grid>
 </Page>

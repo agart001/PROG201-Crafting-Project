@@ -16,24 +16,25 @@ using System.Windows.Shapes;
 namespace PROG201_Crafting_Project.pages
 {
     /// <summary>
-    /// Interaction logic for start_page.xaml
+    /// Interaction logic for inventory_page.xaml
     /// </summary>
-    public partial class start_page : Page
+    public partial class inventory_page : Page
     {
-        public start_page()
-        {
+        public inventory_page()
+        { 
             InitializeComponent();
+
         }
 
-        private void Craft_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.UINav.UpdatePage("craft");
+            MainWindow.Game.Player.Inventory.RemoveAt(0);
+            MainWindow.UINav.UpdatePage("start");
         }
 
-        private void Inventory_Click(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            MainWindow.Game.BindPlayerInventory();
-            MainWindow.UINav.UpdatePage("inventory");
-        }  
+            dtgrd_Inventory.ItemsSource = MainWindow.Game.PlayerInventory;
+        }
     }
 }
