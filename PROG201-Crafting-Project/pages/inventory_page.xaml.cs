@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -21,55 +22,43 @@ namespace PROG201_Crafting_Project.pages
     /// </summary>
     public partial class inventory_page : Page
     {
+        List<TextBlock> GridTextBlocks;
+
         public inventory_page()
         { 
             InitializeComponent();
 
+            GridTextBlocks = new List<TextBlock>
+            {
+                tb_Name,
+                tb_Rarity,
+                tb_Type,
+                tb_Value,
+                tb_Count,
+                tb_Desc
+            };
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Game.Player.Inventory.RemoveAt(0);
             MainWindow.UINav.UpdatePage("start");
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            dtgrd_Inventory.ItemsSource = MainWindow.Game.PlayerInventory;
-            GridSelectedItem();
-        }
+            MainWindow.UINav.SetGridSource(dtgrd_Inventory, MainWindow.Game.PlayerInventory);
 
-        private void dtgrd_Inventory_Selected(object sender, RoutedEventArgs e)
-        {
-            /*
-            DataGrid dtgrd = sender as DataGrid;
-            Item rowItem = dtgrd.SelectedItem as Item;
-
-            string _val = rowItem.Value.ToString();
-
-            tb_Name.Text = rowItem.Name;
-            tb_Value.Text = _val;
-            tb_Desc.Text = rowItem.Desc;
-            */
+            MainWindow.UINav.ToggleVis(grd_Item);
         }
 
         private void dtgrd_Inventory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            GridSelectedItem();
+            MainWindow.UINav.SelectedGrid(MainWindow.Game.PlayerInventory, dtgrd_Inventory, grd_Item, GridTextBlocks);
         }
 
-        void GridSelectedItem()
+        private void dtgrd_Inventory_Selected(object sender, RoutedEventArgs e)
         {
-            if (dtgrd_Inventory.SelectedItem != null && dtgrd_Inventory.Items.Count > 0)
-            {
-                Item SelectedItem = dtgrd_Inventory.SelectedItem as Item;
-
-                string val = SelectedItem.Value.ToString();
-
-                tb_Name.Text = SelectedItem.Name;
-                tb_Value.Text = val;
-                tb_Desc.Text = SelectedItem.Desc;
-            }
+            MainWindow.UINav.ToggleVis(grd_Item);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,24 +21,60 @@ namespace PROG201_Crafting_Project.pages
     /// </summary>
     public partial class craft_page : Page
     {
-        Craft Crafter = new Craft();
+        void SetGridSource() => dtgrd_Recipe.ItemsSource = MainWindow.Game.PlayerRecipes;
+
+        void SelectedGridRecipe()
+        {
+            if (dtgrd_Recipe.SelectedItem != null && dtgrd_Recipe.Items.Count != 0)
+            {
+                Recipe SelectedRecipe = dtgrd_Recipe.SelectedItem as Recipe;
+
+                Item ResultItem = SelectedRecipe.Result;
+
+                string val = ResultItem.Value.ToString();
+
+                tb_Name.Text = ResultItem.Name;
+                tb_Value.Text = val;
+                tb_Desc.Text = ResultItem.Desc;
+            }
+            else
+            {
+                tb_Name.Text = "default";
+                tb_Value.Text = "default";
+                tb_Desc.Text = "default";
+            }
+        }
+
         public craft_page()
         {
             InitializeComponent();
+        }
 
-            RefreshTextBlocks();
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            SetGridSource();
+            SelectedGridRecipe();
+        }
+
+        private void dtgrd_Recipe_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectedGridRecipe();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Crafter.CraftItem(MainWindow.Game.Player.Inventory, 0);
-            RefreshTextBlocks();
+            MainWindow.UINav.UpdatePage("start");
         }
 
-        void RefreshTextBlocks()
+        private void Craft_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.UINav.InventoryInfo(MainWindow.Game.Player, tb_inventory);
-            MainWindow.UINav.RecipeInfo(Crafter.CheckRecipes(MainWindow.Game.Player.Inventory), tb_recipe);
+            MainWindow.Game.Crafter.CraftItem(MainWindow.Game.Player.Inventory, dtgrd_Recipe.SelectedIndex);
+
+            MainWindow.Game.BindPlayerRecipes();
+
+
+            SetGridSource();
+            SelectedGridRecipe();
         }
     }
 }

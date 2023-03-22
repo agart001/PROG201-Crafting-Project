@@ -7,7 +7,7 @@ using static PROG201_Crafting_Project.Utility;
 
 namespace PROG201_Crafting_Project
 {
-    internal class Craft
+    public class Craft
     {
         public List<Recipe> Recipes = new List<Recipe>();
 

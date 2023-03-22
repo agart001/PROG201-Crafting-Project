@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -44,37 +45,56 @@ namespace PROG201_Crafting_Project
             }
         }
 
-        public void InventoryInfo(Character actor, TextBlock textblock)
-        {
-            textblock.Text = string.Empty;
+        public void SetGridSource(DataGrid grid, BindingList<Item> List) => grid.ItemsSource = List;
 
-            int i = 0;
-            textblock.Text = actor.Name + "      Gold: " + actor.Gold + "\n\r";
-            foreach (Item item in actor.Inventory)
+        public void SetGridSource(DataGrid grid, BindingList<Recipe> List) => grid.ItemsSource = List;
+
+
+        public void SelectedGrid(BindingList<Item> List, DataGrid grid, Grid container, List<TextBlock> blocks)
+        {
+            if (grid.SelectedItem != null && grid.Items.Count != 0)
             {
-                i++;
-                textblock.Text += "Item #" + i + ":" + "\n\r" +
-                    "Name: {" + item.Name +
-                    "} Value: {" + item.Value + "} \n\r" +
-                    "Desc: (" + item.Desc + ") \n\r";
+
+                Item SelectedItem = grid.SelectedItem as Item;
+
+                string rarity = SelectedItem.Rarity.ToString();
+                string type = SelectedItem.Type.ToString();
+
+                string value = SelectedItem.Value.ToString();
+                string count = SelectedItem.Count.ToString();
+
+                blocks[0].Text = $"Name: {SelectedItem.Name}";
+                blocks[1].Text = $"Rarity: {rarity}";
+                blocks[2].Text = $"Type: {type}";
+                blocks[3].Text = $"Value: {value}";
+                blocks[4].Text = $"Count: {count}";
+                blocks[5].Text = $"Description: {SelectedItem.Desc}";
             }
         }
 
-        public void RecipeInfo(List<Recipe> _recipes, TextBlock textblock)
+        public void SelectedGrid(BindingList<Recipe> List, DataGrid grid, Grid container, List<TextBlock> blocks)
         {
-            textblock.Text = string.Empty;
-
-            int i = 0;
-            foreach (Recipe _recipe in _recipes)
+            if (grid.SelectedItem != null && grid.Items.Count != 0)
             {
-                i++;
-                Item _result = _recipe.Result;
-                textblock.Text += "Item #" + i + ":" + "\n\r" +
-                    "Name: {" + _result.Name +
-                    "} Value: {" + _result.Value + "} \n\r" +
-                    "Desc: (" + _result.Desc + ") \n\r";
+                ToggleVis(container);
+
+                Recipe SelectedRecipe = grid.SelectedItem as Recipe;
+
+                Item ResultItem = SelectedRecipe.Result;
+
+                string rarity = ResultItem.Rarity.ToString();
+                string type = ResultItem.Type.ToString();
+
+                string value = ResultItem.Value.ToString();
+                string count = ResultItem.Count.ToString();
+
+                blocks[0].Text = $"Name: {ResultItem.Name}";
+                blocks[1].Text = $"Rarity: {rarity}";
+                blocks[2].Text = $"Type: {type}";
+                blocks[3].Text = $"Value: {value}";
+                blocks[4].Text = $"Count: {count}";
+                blocks[5].Text = $"Description: {ResultItem.Desc}";
             }
         }
-
     }
 }

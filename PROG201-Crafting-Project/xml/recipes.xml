@@ -1,9 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <recipes>
-	<recipe name="Purple Dye" desc="A bottle of purple dye" value="30">
+	<recipe rarity="1" type="0" name="Purple Dye" desc="A bottle of purple dye" value="30" count="1">
 		<ingredients>
-			<ingredient name="Red Dye" desc="A bottle of red dye" value="15"></ingredient>
-			<ingredient name="Blue Dye" desc="A bottle of blue dye" value="15"></ingredient>
+			<ingredient rarity="0" type="0" name="Red Dye" desc="A bottle of red dye" value="15" count="1"></ingredient>
+			<ingredient rarity="0" type="0" name="Blue Dye" desc="A bottle of blue dye" value="15" count="1"></ingredient>
+		</ingredients>
+	</recipe>
+	
+	<recipe rarity="1" type="0" name="Green Dye" desc="A bottle of green dye" value="30" count="1">
+		<ingredients>
+			<ingredient rarity="0" type="0" name="Yellow Dye" desc="A bottle of yellow dye" value="15" count="1"></ingredient>
+			<ingredient rarity="0" type="0" name="Blue Dye" desc="A bottle of blue dye" value="15" count="1"></ingredient>
 		</ingredients>
 	</recipe>
 </recipes>

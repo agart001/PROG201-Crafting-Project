@@ -27,6 +27,7 @@ namespace PROG201_Crafting_Project.pages
 
         private void Craft_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow.Game.BindPlayerRecipes();
             MainWindow.UINav.UpdatePage("craft");
         }
 
