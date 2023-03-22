@@ -15,13 +15,21 @@
         <Grid.DataContext>
             <PROG201_Crafting_Project:Game/>
         </Grid.DataContext>
-        <DataGrid x:Name="dtgrd_Inventory" ItemsSource="{Binding Path=PlayerInventory}" Margin="51,56,431,56" AutoGenerateColumns="False">
+        <DataGrid x:Name="dtgrd_Inventory" ItemsSource="{Binding Path=PlayerInventory}" Margin="22,33,460,79" AlternationCount="{Binding Items.Count, RelativeSource={RelativeSource Self}}" 
+                    SelectionChanged="dtgrd_Inventory_SelectionChanged" SelectionUnit="FullRow" AutoGenerateColumns="False" CanUserAddRows="False" SelectedIndex="0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" />
-                <DataGridTextColumn Header="Value" Binding="{Binding Path=Value}" />
+                <DataGridTextColumn Header="Index" Binding="{Binding AlternationIndex, RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Remove" HorizontalAlignment="Left" Margin="556,369,0,0" VerticalAlignment="Top" Height="41" Width="155" Click="Button_Click"/>
+        <Button Content="Remove" HorizontalAlignment="Left" Margin="307,382,0,0" VerticalAlignment="Top" Height="41" Width="156" Click="Button_Click"/>
+        <Grid x:Name="grd_Item" Margin="453,38,29,73" Background="#FFBB8787">
+            <TextBlock x:Name="tb_Desc" HorizontalAlignment="Center" Margin="0,209,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="85" Width="186" Background="#FFE9D8D8"/>
+            <TextBlock x:Name="tb_Name" HorizontalAlignment="Center" Margin="0,154,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"  Width="186" Background="#FFE9D8D8"/>
+            <TextBlock x:Name="tb_Value" HorizontalAlignment="Left" Margin="66,180,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Background="#FFE9D8D8"/>
+            <TextBlock x:Name="tb_Count" HorizontalAlignment="Left" Margin="203,180,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Background="#FFE9D8D8"/>
+        </Grid>
 
     </Grid>
 </Page>

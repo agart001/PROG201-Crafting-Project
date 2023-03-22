@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,40 @@ namespace PROG201_Crafting_Project.pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             dtgrd_Inventory.ItemsSource = MainWindow.Game.PlayerInventory;
+            GridSelectedItem();
+        }
+
+        private void dtgrd_Inventory_Selected(object sender, RoutedEventArgs e)
+        {
+            /*
+            DataGrid dtgrd = sender as DataGrid;
+            Item rowItem = dtgrd.SelectedItem as Item;
+
+            string _val = rowItem.Value.ToString();
+
+            tb_Name.Text = rowItem.Name;
+            tb_Value.Text = _val;
+            tb_Desc.Text = rowItem.Desc;
+            */
+        }
+
+        private void dtgrd_Inventory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GridSelectedItem();
+        }
+
+        void GridSelectedItem()
+        {
+            if (dtgrd_Inventory.SelectedItem != null && dtgrd_Inventory.Items.Count > 0)
+            {
+                Item SelectedItem = dtgrd_Inventory.SelectedItem as Item;
+
+                string val = SelectedItem.Value.ToString();
+
+                tb_Name.Text = SelectedItem.Name;
+                tb_Value.Text = val;
+                tb_Desc.Text = SelectedItem.Desc;
+            }
         }
     }
 }
