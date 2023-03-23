@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace PROG201_Crafting_Project
@@ -49,8 +50,7 @@ namespace PROG201_Crafting_Project
 
         public void SetGridSource(DataGrid grid, BindingList<Recipe> List) => grid.ItemsSource = List;
 
-
-        public void SelectedGrid(BindingList<Item> List, DataGrid grid, Image image, List<TextBlock> blocks)
+        public void SelectedData(BindingList<Item> List, DataGrid grid, Image image, List<TextBlock> blocks)
         {
             if (grid.SelectedItem != null && grid.Items.Count != 0)
             {
@@ -73,7 +73,7 @@ namespace PROG201_Crafting_Project
             }
         }
 
-        public void SelectedGrid(BindingList<Recipe> List, DataGrid grid, Image image, List<TextBlock> blocks)
+        public void SelectedData(BindingList<Recipe> List, DataGrid grid, Image image, List<TextBlock> blocks)
         {
             if (grid.SelectedItem != null && grid.Items.Count != 0)
             {

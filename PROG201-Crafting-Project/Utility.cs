@@ -140,10 +140,17 @@ namespace PROG201_Crafting_Project
         }
 
         static BitmapImage ParseItemImage(Item.ItemType type, string file) 
-        { 
+        {
             string folder = ConvertToLower(type.ToString());
-            string path = $"pack://application:,,,/images/items/{folder}/{file}.BMP"; 
-            return new BitmapImage(new Uri(path));
+            string path = $"/../images/item/{folder}/{file}.BMP";
+            BitmapImage image = new BitmapImage(new Uri(path, UriKind.Relative));
+
+            if (image == null)
+            {
+                image = new BitmapImage(new Uri("/../images/default.BMP", UriKind.Relative));
+            }
+
+            return image;
         }
 
         static List<Item> ParseItems(XmlNodeList List)
@@ -156,8 +163,6 @@ namespace PROG201_Crafting_Project
                 Item.ItemType type = (Item.ItemType)Convert.ToInt32(_item.GetAttribute("type")); ;
 
                 BitmapImage image = ParseItemImage(type,_item.GetAttribute("image"));
-
-                int b = 5;
 
 
                 int value = Convert.ToInt32(_item.GetAttribute("value"));

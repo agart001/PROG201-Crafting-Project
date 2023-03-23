@@ -48,14 +48,13 @@ namespace PROG201_Crafting_Project.pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             MainWindow.UINav.SetGridSource(dtgrd_Inventory, MainWindow.Game.PlayerInventory);
-
             grd_Item.Visibility = Visibility.Hidden;
         }
 
         private void dtgrd_Inventory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             grd_Item.Visibility = Visibility.Visible;
-            MainWindow.UINav.SelectedGrid(MainWindow.Game.PlayerInventory, dtgrd_Inventory, img_Item, GridTextBlocks);
+            MainWindow.UINav.SelectedData(MainWindow.Game.PlayerInventory, dtgrd_Inventory, img_Item, GridTextBlocks);
         }
     }
 }
