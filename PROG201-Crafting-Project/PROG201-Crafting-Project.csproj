@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="images\default.BMP" />
     <None Remove="images\item\material\bluedye.BMP" />
+    <None Remove="images\item\material\cyandye.BMP" />
     <None Remove="images\item\material\greendye.BMP" />
     <None Remove="images\item\material\purpledye.BMP" />
     <None Remove="images\item\material\reddye.BMP" />
@@ -21,21 +22,28 @@
     <Content Include="images\default.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\item\material\bluedye.BMP">
+    <Content Include="images\item\material\common\bluedye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\item\material\greendye.BMP">
+    <Content Include="images\item\material\rare\cyandye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\item\material\purpledye.BMP">
+    <Content Include="images\item\material\uncommon\greendye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\item\material\reddye.BMP">
+    <Content Include="images\item\material\uncommon\purpledye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\item\material\yellowdye.BMP">
+    <Content Include="images\item\material\common\reddye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="images\item\material\common\yellowdye.BMP">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="images\item\material\epic\" />
   </ItemGroup>
 
 </Project>

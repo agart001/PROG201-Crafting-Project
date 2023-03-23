@@ -108,7 +108,7 @@ namespace PROG201_Crafting_Project
                 Item.ItemRarity rarity = (Item.ItemRarity)Convert.ToInt32(_recipe.GetAttribute("rarity"));
                 Item.ItemType type = (Item.ItemType)Convert.ToInt32(_recipe.GetAttribute("type")); ;
 
-                BitmapImage image = ParseItemImage(type,_recipe.GetAttribute("image"));
+                BitmapImage image = ParseItemImage(type, rarity, _recipe.GetAttribute("image"));
 
                 int value = Convert.ToInt32(_recipe.GetAttribute("value"));
                 int count = Convert.ToInt32(_recipe.GetAttribute("count"));
@@ -139,10 +139,11 @@ namespace PROG201_Crafting_Project
             return Recipes;
         }
 
-        static BitmapImage ParseItemImage(Item.ItemType type, string file) 
+        static BitmapImage ParseItemImage(Item.ItemType type, Item.ItemRarity rarity, string file) 
         {
-            string folder = ConvertToLower(type.ToString());
-            string path = $"/../images/item/{folder}/{file}.BMP";
+            string type_folder = ConvertToLower(type.ToString());
+            string rarity_folder = ConvertToLower(rarity.ToString());
+            string path = $"/../images/item/{type_folder}/{rarity}/{file}.BMP";
             BitmapImage image = new BitmapImage(new Uri(path, UriKind.Relative));
 
             if (image == null)
@@ -162,7 +163,7 @@ namespace PROG201_Crafting_Project
                 Item.ItemRarity rarity = (Item.ItemRarity)Convert.ToInt32(_item.GetAttribute("rarity"));
                 Item.ItemType type = (Item.ItemType)Convert.ToInt32(_item.GetAttribute("type")); ;
 
-                BitmapImage image = ParseItemImage(type,_item.GetAttribute("image"));
+                BitmapImage image = ParseItemImage(type, rarity, _item.GetAttribute("image"));
 
 
                 int value = Convert.ToInt32(_item.GetAttribute("value"));

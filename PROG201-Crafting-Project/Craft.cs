@@ -16,14 +16,28 @@ namespace PROG201_Crafting_Project
             Recipes = LoadRecipesXML();
         }
 
-        //--
-        //stack overflow
-        //source uri: https://stackoverflow.com/questions/47421110/check-if-a-list-contains-all-of-another-lists-items-when-comparing-on-one-proper
         bool CheckCraftability(List<Item> _inventory, Recipe _recipe)
         {
-            return _recipe.Ingredients.All(ingredient => _inventory.Any(item => item.Name == ingredient.Name) && _inventory.Any(item => item.Count == ingredient.Count)); 
+            bool craftable = false;
+            bool[] useable = new bool[_recipe.Ingredients.Count];
+            int index = 0;
+            foreach (Item ingredient in _recipe.Ingredients)
+            {
+                Item item = _inventory.Find(i_item => i_item.Name == ingredient.Name);
+                if (item == null) break;
+
+                if (item.Count >= ingredient.Count) 
+                {
+                    useable[index] = true;
+                }
+
+                index++;
+            }
+
+            craftable = useable.All(i => i == true);
+
+            return craftable;
         }
-        //--
 
         void CalcRarity(Item item)
         {

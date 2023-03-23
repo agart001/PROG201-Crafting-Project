@@ -41,15 +41,18 @@ namespace PROG201_Crafting_Project.pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             MainWindow.UINav.SetGridSource(dtgrd_Recipe, MainWindow.Game.PlayerRecipes);
+
             grd_Recipe.Visibility = Visibility.Hidden;
             btn_Craft.Visibility = Visibility.Hidden;
         }
 
         private void dtgrd_Recipe_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            grd_Recipe.Visibility = Visibility.Visible;
-            MainWindow.UINav.SelectedData(MainWindow.Game.PlayerRecipes, dtgrd_Recipe, img_Recipe, GridTextBlocks);
 
+            MainWindow.UINav.SelectedData(MainWindow.Game.PlayerRecipes, dtgrd_Recipe, img_Recipe, GridTextBlocks);
+            MainWindow.UINav.SelectedGrid(dtgrd_Ingredients, dtgrd_Recipe);
+
+            grd_Recipe.Visibility = Visibility.Visible;
             btn_Craft.Visibility = Visibility.Visible;
         }
 

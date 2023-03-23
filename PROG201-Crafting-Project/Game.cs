@@ -25,7 +25,6 @@ namespace PROG201_Crafting_Project
             Crafter = new Craft();
 
             Player = new Character("Alex", 200, 0, "items", "player");
-            BindPlayerInventory();
         }
 
         public void BindPlayerInventory() => PlayerInventory = new BindingList<Item>(Player.Inventory);
