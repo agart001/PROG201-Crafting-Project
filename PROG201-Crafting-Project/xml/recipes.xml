@@ -2,7 +2,7 @@
 <recipes>
 	<recipe rarity="1" type="0" image="purpledye" name="Purple Dye" desc="A bottle of purple dye" value="30" count="1">
 		<ingredients>
-			<ingredient rarity="0" type="0" image="reddye" name="Red Dye" desc="A bottle of red dye" value="15" count="1"></ingredient>
+			<ingredient rarity="0" type="0" image="reddye" name="Red Dye" desc="A bottle of red dye" value="15" count="2"></ingredient>
 			<ingredient rarity="0" type="0" image="bluedye" name="Blue Dye" desc="A bottle of blue dye" value="15" count="1"></ingredient>
 		</ingredients>
 	</recipe>

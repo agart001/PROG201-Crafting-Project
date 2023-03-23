@@ -21,13 +21,30 @@ namespace PROG201_Crafting_Project
         //source uri: https://stackoverflow.com/questions/47421110/check-if-a-list-contains-all-of-another-lists-items-when-comparing-on-one-proper
         bool CheckCraftability(List<Item> _inventory, Recipe _recipe)
         {
-            return _recipe.Ingredients.All(r_item => _inventory.Any(i_item => i_item.Name == r_item.Name)); 
+            return _recipe.Ingredients.All(ingredient => _inventory.Any(item => item.Name == ingredient.Name) && _inventory.Any(item => item.Count == ingredient.Count)); 
         }
         //--
 
+        void CalcRarity(Item item)
+        {
+
+        }
+
+        void RemoveItems(List<Item> _inventory, Recipe _recipe)
+        {
+            foreach (Item ingredient in _recipe.Ingredients)
+            {
+                Item item = _inventory.Find(i_item => i_item.Name == ingredient.Name);
+
+                if (item.Count - ingredient.Count <= 0) { _inventory.Remove(item); }
+                else { item.Count -= ingredient.Count; }
+            }
+        }
+
         void ExchangeItems(List<Item> _inventory, Recipe _recipe)
         {
-            _inventory.RemoveAll(i_item => _recipe.Ingredients.Any(r_item => i_item.Name == r_item.Name));
+            //_inventory.RemoveAll(i_item => _recipe.Ingredients.Any(r_item => i_item.Name == r_item.Name));
+            RemoveItems(_inventory,_recipe);
             _inventory.Add(_recipe.Result);
         }
 
@@ -55,5 +72,6 @@ namespace PROG201_Crafting_Project
 
             return _recipes;
         }
+
     }
 }
