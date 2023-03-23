@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,17 +49,13 @@ namespace PROG201_Crafting_Project.pages
         {
             MainWindow.UINav.SetGridSource(dtgrd_Inventory, MainWindow.Game.PlayerInventory);
 
-            MainWindow.UINav.ToggleVis(grd_Item);
+            grd_Item.Visibility = Visibility.Hidden;
         }
 
         private void dtgrd_Inventory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MainWindow.UINav.SelectedGrid(MainWindow.Game.PlayerInventory, dtgrd_Inventory, grd_Item, GridTextBlocks);
-        }
-
-        private void dtgrd_Inventory_Selected(object sender, RoutedEventArgs e)
-        {
-            MainWindow.UINav.ToggleVis(grd_Item);
+            grd_Item.Visibility = Visibility.Visible;
+            MainWindow.UINav.SelectedGrid(MainWindow.Game.PlayerInventory, dtgrd_Inventory, img_Item, GridTextBlocks);
         }
     }
 }

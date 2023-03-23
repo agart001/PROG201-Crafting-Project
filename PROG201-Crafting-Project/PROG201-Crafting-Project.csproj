@@ -8,4 +8,30 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="images\items\materials\bluedye.BMP" />
+    <None Remove="images\items\materials\greendye.BMP" />
+    <None Remove="images\items\materials\purpledye.BMP" />
+    <None Remove="images\items\materials\reddye.BMP" />
+    <None Remove="images\items\materials\yellowdye.BMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="images\items\materials\bluedye.BMP">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\items\materials\greendye.BMP">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\items\materials\purpledye.BMP">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\items\materials\reddye.BMP">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\items\materials\yellowdye.BMP">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

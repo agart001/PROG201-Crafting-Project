@@ -50,11 +50,10 @@ namespace PROG201_Crafting_Project
         public void SetGridSource(DataGrid grid, BindingList<Recipe> List) => grid.ItemsSource = List;
 
 
-        public void SelectedGrid(BindingList<Item> List, DataGrid grid, Grid container, List<TextBlock> blocks)
+        public void SelectedGrid(BindingList<Item> List, DataGrid grid, Image image, List<TextBlock> blocks)
         {
             if (grid.SelectedItem != null && grid.Items.Count != 0)
             {
-
                 Item SelectedItem = grid.SelectedItem as Item;
 
                 string rarity = SelectedItem.Rarity.ToString();
@@ -62,6 +61,8 @@ namespace PROG201_Crafting_Project
 
                 string value = SelectedItem.Value.ToString();
                 string count = SelectedItem.Count.ToString();
+
+                image.Source = SelectedItem.Image;
 
                 blocks[0].Text = $"Name: {SelectedItem.Name}";
                 blocks[1].Text = $"Rarity: {rarity}";
@@ -72,12 +73,10 @@ namespace PROG201_Crafting_Project
             }
         }
 
-        public void SelectedGrid(BindingList<Recipe> List, DataGrid grid, Grid container, List<TextBlock> blocks)
+        public void SelectedGrid(BindingList<Recipe> List, DataGrid grid, Image image, List<TextBlock> blocks)
         {
             if (grid.SelectedItem != null && grid.Items.Count != 0)
             {
-                ToggleVis(container);
-
                 Recipe SelectedRecipe = grid.SelectedItem as Recipe;
 
                 Item ResultItem = SelectedRecipe.Result;
@@ -87,6 +86,8 @@ namespace PROG201_Crafting_Project
 
                 string value = ResultItem.Value.ToString();
                 string count = ResultItem.Count.ToString();
+
+                image.Source = ResultItem.Image;
 
                 blocks[0].Text = $"Name: {ResultItem.Name}";
                 blocks[1].Text = $"Rarity: {rarity}";

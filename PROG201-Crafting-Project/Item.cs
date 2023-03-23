@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace PROG201_Crafting_Project
 {
@@ -26,6 +27,8 @@ namespace PROG201_Crafting_Project
         public ItemRarity Rarity { get; set; }
 
         public ItemType Type { get; set; }
+
+        public BitmapImage Image { get; set; }
 
         public string Name { get; set; }
 

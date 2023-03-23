@@ -8,6 +8,8 @@ using System.Xml;
 using System.IO;
 using static System.Console;
 using System.Security.Policy;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 
 namespace PROG201_Crafting_Project
 {
@@ -106,6 +108,8 @@ namespace PROG201_Crafting_Project
                 Item.ItemRarity rarity = (Item.ItemRarity)Convert.ToInt32(_recipe.GetAttribute("rarity"));
                 Item.ItemType type = (Item.ItemType)Convert.ToInt32(_recipe.GetAttribute("type")); ;
 
+                BitmapImage image = ParseItemImage(type,_recipe.GetAttribute("image"));
+
                 int value = Convert.ToInt32(_recipe.GetAttribute("value"));
                 int count = Convert.ToInt32(_recipe.GetAttribute("count"));
 
@@ -120,6 +124,8 @@ namespace PROG201_Crafting_Project
                         Rarity = rarity,
                         Type = type,
 
+                        Image = image,
+
                         Name = _recipe.GetAttribute("name"),
                         Desc = _recipe.GetAttribute("desc"),
 
@@ -133,6 +139,13 @@ namespace PROG201_Crafting_Project
             return Recipes;
         }
 
+        static BitmapImage ParseItemImage(Item.ItemType type, string file) 
+        { 
+            string folder = ConvertToLower(type.ToString());
+            string path = $"pack://application:,,,/images/items/{folder}/{file}.BMP"; 
+            return new BitmapImage(new Uri(path));
+        }
+
         static List<Item> ParseItems(XmlNodeList List)
         {
             List<Item> Items = new List<Item>();
@@ -142,6 +155,11 @@ namespace PROG201_Crafting_Project
                 Item.ItemRarity rarity = (Item.ItemRarity)Convert.ToInt32(_item.GetAttribute("rarity"));
                 Item.ItemType type = (Item.ItemType)Convert.ToInt32(_item.GetAttribute("type")); ;
 
+                BitmapImage image = ParseItemImage(type,_item.GetAttribute("image"));
+
+                int b = 5;
+
+
                 int value = Convert.ToInt32(_item.GetAttribute("value"));
                 int count = Convert.ToInt32(_item.GetAttribute("count"));
 
@@ -149,6 +167,8 @@ namespace PROG201_Crafting_Project
                 {
                     Rarity = rarity,
                     Type = type,
+
+                    Image = image,
 
                     Name = _item.GetAttribute("name"),
                     Desc = _item.GetAttribute("desc"),

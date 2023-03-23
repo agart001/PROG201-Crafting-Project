@@ -2,16 +2,16 @@
 <AllItems>
 	<player>
 		<items>
-			<item rarity="0" type="0" name="Blue Dye" desc="A bottle of blue dye" value="15" count="1"></item>
-			<item rarity="0" type="0" name="Red Dye" desc="A bottle of red dye" value="15" count="1"></item>
-			<item rarity="0" type="0" name="Yellow Dye" desc="A bottle of yellow dye" value="15" count="1"></item>
+			<item rarity="0" type="0" image="bluedye" name="Blue Dye" desc="A bottle of blue dye" value="15" count="1"></item>
+			<item rarity="0" type="0" image="reddye" name="Red Dye" desc="A bottle of red dye" value="15" count="1"></item>
+			<item rarity="0" type="0" image="yellowdye" name="Yellow Dye" desc="A bottle of yellow dye" value="15" count="1"></item>
 		</items>
 	</player>
 
 	<npc1>
 		<items>
-			<item rarity="0" type="0" name="Red Dye" desc="A bottle of red dye" value="15" count="1"></item>
-			<item rarity="1" type="0" name="Purple Dye" desc="A bottle of purple dye" value="30" count="1"></item>
+			<item rarity="0" type="0" image="reddye" name="Red Dye" desc="A bottle of red dye" value="15" count="1"></item>
+			<item rarity="1" type="0" image="purpleedye" name="Purple Dye" desc="A bottle of purple dye" value="30" count="1"></item>
 		</items>
 	</npc1>
 </AllItems>
