@@ -43,17 +43,15 @@ namespace PROG201_Crafting_Project.pages
             MainWindow.UINav.SetGridSource(dtgrd_Recipe, MainWindow.Game.PlayerRecipes);
 
             grd_Recipe.Visibility = Visibility.Hidden;
-            btn_Craft.Visibility = Visibility.Hidden;
         }
 
         private void dtgrd_Recipe_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
             MainWindow.UINav.SelectedData(MainWindow.Game.PlayerRecipes, dtgrd_Recipe, img_Recipe, GridTextBlocks);
-            MainWindow.UINav.SelectedGrid(dtgrd_Ingredients, dtgrd_Recipe);
+            if (dtgrd_Recipe.SelectedIndex != -1) MainWindow.UINav.SelectedGrid(dtgrd_Recipe, dtgrd_Ingredients);
 
             grd_Recipe.Visibility = Visibility.Visible;
-            btn_Craft.Visibility = Visibility.Visible;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -70,7 +68,6 @@ namespace PROG201_Crafting_Project.pages
             dtgrd_Recipe.SelectedIndex = -1;
 
             grd_Recipe.Visibility = Visibility.Hidden;
-            btn_Craft.Visibility = Visibility.Hidden;
         }
     }
 }

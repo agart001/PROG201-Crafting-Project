@@ -27,9 +27,9 @@
                 <DataGridTextColumn Header="Count" Binding="{Binding Count}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Remove" HorizontalAlignment="Left" Margin="307,382,0,0" VerticalAlignment="Top" Height="41" Width="156" Click="Button_Click"/>
-        
-        <Grid x:Name="grd_Item" Margin="400,40,40,80" Background="#FFBB8787" HorizontalAlignment="Stretch">
+        <Button Content="Back" HorizontalAlignment="Left" Margin="103,376,0,0" VerticalAlignment="Top" Height="41" Width="156" Click="Button_Click"/>
+
+        <Grid x:Name="grd_Item" Margin="381,41,49,53" Background="#FFBB8787">
             <Image x:Name="img_Item" Stretch="Fill" HorizontalAlignment="Left" Height="176" Margin="20,20,0,0" VerticalAlignment="Top" Width="320"/>
 
             <TextBlock x:Name="tb_Name" HorizontalAlignment="Left" Margin="20,212,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="Item Name" VerticalAlignment="Top" Height="16" Width="320" Background="#FFE9D8D8"/>

@@ -10,6 +10,7 @@ using static System.Console;
 using System.Security.Policy;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using System.ComponentModel;
 
 namespace PROG201_Crafting_Project
 {
@@ -20,6 +21,7 @@ namespace PROG201_Crafting_Project
         public static void CloseApp() => Environment.Exit(0);
 
         public static string ConvertToLower(string str) { return str.ToLower(); }
+
 
         public static void Print(string str) => WriteLine(str);
 

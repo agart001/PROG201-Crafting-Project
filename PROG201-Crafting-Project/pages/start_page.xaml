@@ -8,9 +8,10 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="start_page">
 
+
     <Grid Background="#FF74C245">
-        <Button Content="Craft" HorizontalAlignment="Left" Margin="115,329,0,0" VerticalAlignment="Top" Height="46" Width="73" Click="Craft_Click"/>
-        <Button Content="Inventory" HorizontalAlignment="Left" Margin="459,329,0,0" VerticalAlignment="Top" Height="46" Width="73" Click="Inventory_Click"/>
+        <Button Content="Craft" HorizontalAlignment="Left" Margin="233,101,0,0" VerticalAlignment="Top" Height="46" Width="73" Click="Craft_Click"/>
+        <Button Content="Inventory" HorizontalAlignment="Left" Margin="95,101,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Inventory_Click"/>
 
     </Grid>
 </Page>

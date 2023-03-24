@@ -52,14 +52,13 @@ namespace PROG201_Crafting_Project
 
         public void SelectedGrid(DataGrid grid, DataGrid subgrid)
         {
-            if (grid.SelectedItem != null && grid.Items.Count != 0)
-            {
-                Recipe SelectedRecipe = grid.SelectedItem as Recipe;
+            if (grid.SelectedItem == null && grid.Items.Count == 0) return;
 
-                List<Item> ingredients = SelectedRecipe.Ingredients;
+            Recipe SelectedRecipe = grid.SelectedItem as Recipe;
 
-                subgrid.ItemsSource = ingredients;
-            }
+            List<Item> ingredients = SelectedRecipe.Ingredients;
+
+            subgrid.ItemsSource = ingredients;
         }
 
         void GridItem(Item item, Image image, List<TextBlock> blocks)
@@ -73,8 +72,8 @@ namespace PROG201_Crafting_Project
             image.Source = item.Image;
 
             blocks[0].Text = $"Name: {item.Name}";
-            blocks[1].Text = $"Rarity: {rarity}";
-            blocks[2].Text = $"Type: {type}";
+            blocks[1].Text = $"{rarity}";
+            blocks[2].Text = $"{type}";
             blocks[3].Text = $"Value: {value}";
             blocks[4].Text = $"Count: {count}";
             blocks[5].Text = $"Description: {item.Desc}";
