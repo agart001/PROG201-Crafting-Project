@@ -24,9 +24,18 @@ namespace PROG201_Crafting_Project
             Equipment
         }
 
+        public enum ItemSource
+        {
+            Found,
+            Crafted,
+            Bought
+        }
+
         public ItemRarity Rarity { get; set; }
 
         public ItemType Type { get; set; }
+
+        public ItemSource Source { get; set; }
 
         public BitmapImage Image { get; set; }
 

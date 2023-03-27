@@ -50,6 +50,8 @@ namespace PROG201_Crafting_Project
 
             int seed = Rand.Next(0, 10);
 
+            seed = 6;
+
             if(seed <= 7)
             {
                 item.Rarity = base_rarity;
@@ -105,7 +107,7 @@ namespace PROG201_Crafting_Project
             }
             else
             {
-                if (item.Rarity == result.Rarity)
+                if (item.Rarity == result.Rarity && item.Source == result.Source)
                 {
                     item.Count += result.Count;
                 }
@@ -119,7 +121,6 @@ namespace PROG201_Crafting_Project
 
         void ExchangeItems(List<Item> _inventory, Recipe _recipe)
         {
-            //_inventory.RemoveAll(i_item => _recipe.Ingredients.Any(r_item => i_item.Name == r_item.Name));
             RemoveItems(_inventory, _recipe);
             AddItem(_inventory, _recipe.Result);
         }

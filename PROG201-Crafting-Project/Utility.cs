@@ -11,6 +11,7 @@ using System.Security.Policy;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.ComponentModel;
+using System.Xml.Linq;
 
 namespace PROG201_Crafting_Project
 {
@@ -140,7 +141,8 @@ namespace PROG201_Crafting_Project
             foreach (XmlElement _recipe in RecipeList)
             {
                 Item.ItemRarity rarity = (Item.ItemRarity)Convert.ToInt32(_recipe.GetAttribute("rarity"));
-                Item.ItemType type = (Item.ItemType)Convert.ToInt32(_recipe.GetAttribute("type")); ;
+                Item.ItemType type = (Item.ItemType)Convert.ToInt32(_recipe.GetAttribute("type"));
+                Item.ItemSource source = (Item.ItemSource)Convert.ToInt32(_recipe.GetAttribute("source"));
 
                 BitmapImage image = ParseItemImage(type, rarity, _recipe.GetAttribute("image"));
 
@@ -157,6 +159,7 @@ namespace PROG201_Crafting_Project
                     {
                         Rarity = rarity,
                         Type = type,
+                        Source = source,
 
                         Image = image,
 
@@ -195,10 +198,10 @@ namespace PROG201_Crafting_Project
             foreach (XmlElement _item in List)
             {
                 Item.ItemRarity rarity = (Item.ItemRarity)Convert.ToInt32(_item.GetAttribute("rarity"));
-                Item.ItemType type = (Item.ItemType)Convert.ToInt32(_item.GetAttribute("type")); ;
+                Item.ItemType type = (Item.ItemType)Convert.ToInt32(_item.GetAttribute("type"));
+                Item.ItemSource source = (Item.ItemSource)Convert.ToInt32(_item.GetAttribute("source"));
 
                 BitmapImage image = ParseItemImage(type, rarity, _item.GetAttribute("image"));
-
 
                 int value = Convert.ToInt32(_item.GetAttribute("value"));
                 int count = Convert.ToInt32(_item.GetAttribute("count"));
@@ -207,6 +210,7 @@ namespace PROG201_Crafting_Project
                 {
                     Rarity = rarity,
                     Type = type,
+                    Source = source,
 
                     Image = image,
 

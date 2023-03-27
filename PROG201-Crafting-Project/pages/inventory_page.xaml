@@ -15,13 +15,13 @@
         <Grid.DataContext>
             <PROG201_Crafting_Project:Game/>
         </Grid.DataContext>
-        <DataGrid x:Name="dtgrd_Inventory" ItemsSource="{Binding Path=PlayerInventory}" Margin="22,33,460,79" AlternationCount="{Binding Items.Count, RelativeSource={RelativeSource Self}}" 
+        <DataGrid x:Name="dtgrd_Inventory" ItemsSource="{Binding Path=PlayerInventory}" Margin="22,33,460,79" 
                   SelectionChanged="dtgrd_Inventory_SelectionChanged" SelectionUnit="FullRow" 
                   AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Index" Binding="{Binding AlternationIndex, RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
                 <DataGridTextColumn Header="Rarity" Binding="{Binding Rarity}" />
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                <DataGridTextColumn Header="Source" Binding="{Binding Source}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
                 <DataGridTextColumn Header="Count" Binding="{Binding Count}" />

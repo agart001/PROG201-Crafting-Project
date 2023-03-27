@@ -31,7 +31,7 @@ namespace PROG201_Crafting_Project
 
             Vendor = new Store();
 
-            Player = new Character("Alex", 200, 0, "items", "player");
+            Player = new Character("Alex", 40, 0, "items", "player");
 
             NPCs = LoadCharactersXML();
         }

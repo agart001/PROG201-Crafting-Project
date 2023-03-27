@@ -40,10 +40,15 @@ namespace PROG201_Crafting_Project
             AddItem(buyer_inventory, item, amount);
         }
         
+        void ApplyCost(Character buyer, Character seller, int cost)
+        {
+            seller.Gold += cost;
+            buyer.Gold -= cost;
+        }
 
         public void BuyItem(Character buyer, Character seller, Item item, int amount)
         {
-            if (amount > item.Count) return;
+            if (buyer.Gold - (item.Value * amount) < 0 || amount > item.Count) return;
 
             List<Item> b_inv = buyer.Inventory;
             List<Item> s_inv = seller.Inventory;
@@ -59,8 +64,7 @@ namespace PROG201_Crafting_Project
                 ItemDecremented(b_inv, item, amount);
             }
 
-            seller.Gold += cost;
-            buyer.Gold -= cost;
+            ApplyCost(buyer, seller, cost);
         }
     }
 }
