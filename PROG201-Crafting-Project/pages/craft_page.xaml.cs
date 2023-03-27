@@ -61,7 +61,7 @@ namespace PROG201_Crafting_Project.pages
 
         private void Craft_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Game.Crafter.CraftItem(MainWindow.Game.Player.Inventory, dtgrd_Recipe.SelectedIndex);
+            MainWindow.Game.Crafter.CraftItem(MainWindow.Game.Player.Inventory, dtgrd_Recipe.SelectedItem as Recipe);
 
             MainWindow.Game.BindPlayerRecipes();
             MainWindow.UINav.SetGridSource(dtgrd_Recipe, MainWindow.Game.PlayerRecipes);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,44 @@ namespace PROG201_Crafting_Project
 
         void CalcRarity(Item item)
         {
+            Item.ItemRarity base_rarity = item.Rarity;
+            int i_rarity = (int)base_rarity;
+            int len = Enum.GetNames(typeof(Item.ItemRarity)).Length;
 
+            if(i_rarity+ 2 > len) { return; }
+
+            int seed = Rand.Next(0, 10);
+
+            if(seed <= 7)
+            {
+                item.Rarity = base_rarity;
+            }
+
+            if(seed > 7 && seed <= 9)
+            {
+                item.Rarity = base_rarity + 1;
+            }
+            
+            if(seed > 9)
+            {
+                item.Rarity = base_rarity + 2;
+            }
+
+
+            if(item.Rarity != base_rarity) { CalcValue(item); }
+        }
+
+        void CalcValue(Item item)
+        {
+            double factor = ((int)item.Rarity) + 1;
+            double applied = ((factor * 10) + 100) / 100;
+            double calc_value = item.Value * applied;
+            item.Value = (int)calc_value;
+        }
+
+        void GenerateItem(Item item)
+        {
+            CalcRarity(item);
         }
 
         void RemoveItems(List<Item> _inventory, Recipe _recipe)
@@ -55,16 +93,39 @@ namespace PROG201_Crafting_Project
             }
         }
 
+        void AddItem(List<Item> _inventory, Item result)
+        {
+            Item item = _inventory.Find(i_item => i_item.Name == result.Name);
+
+            GenerateItem(result);
+
+            if (item == null)
+            {
+                _inventory.Add(result);
+            }
+            else
+            {
+                if (item.Rarity == result.Rarity)
+                {
+                    item.Count += result.Count;
+                }
+                else
+                {
+                    _inventory.Add(result);
+                }
+            }
+
+        }
+
         void ExchangeItems(List<Item> _inventory, Recipe _recipe)
         {
             //_inventory.RemoveAll(i_item => _recipe.Ingredients.Any(r_item => i_item.Name == r_item.Name));
-            RemoveItems(_inventory,_recipe);
-            _inventory.Add(_recipe.Result);
+            RemoveItems(_inventory, _recipe);
+            AddItem(_inventory, _recipe.Result);
         }
 
-        public void CraftItem(List<Item> _inventory, int r_index)
+        public void CraftItem(List<Item> _inventory, Recipe _recipe)
         {
-            Recipe _recipe = Recipes[r_index];
 
             if(CheckCraftability(_inventory, _recipe))
             {

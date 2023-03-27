@@ -145,7 +145,7 @@ namespace PROG201_Crafting_Project
         {
             string type_folder = ConvertToLower(type.ToString());
             string rarity_folder = ConvertToLower(rarity.ToString());
-            string path = $"/../images/item/{type_folder}/{rarity}/{file}.BMP";
+            string path = $"/../images/item/{type_folder}/{file}.BMP";
             BitmapImage image = new BitmapImage(new Uri(path, UriKind.Relative));
 
             if (image == null)

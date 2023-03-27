@@ -10,44 +10,41 @@
 
   <ItemGroup>
     <None Remove="images\default.BMP" />
-    <None Remove="images\item\material\bluedye.BMP" />
-    <None Remove="images\item\material\cyandye.BMP" />
-    <None Remove="images\item\material\greendye.BMP" />
-    <None Remove="images\item\material\purpledye.BMP" />
-    <None Remove="images\item\material\reddye.BMP" />
     <None Remove="images\item\material\uncommon\browndye.BMP" />
-    <None Remove="images\item\material\yellowdye.BMP" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="images\default.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\item\material\common\bluedye.BMP">
+    <Content Include="images\item\material\bluedye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\item\material\rare\cyandye.BMP">
+    <Content Include="images\item\material\cyandye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\item\material\uncommon\browndye.BMP">
+    <Content Include="images\item\material\browndye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\item\material\uncommon\greendye.BMP">
+    <Content Include="images\item\material\greendye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\item\material\uncommon\purpledye.BMP">
+    <Content Include="images\item\material\purpledye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\item\material\common\reddye.BMP">
+    <Content Include="images\item\material\reddye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\item\material\common\yellowdye.BMP">
+    <Content Include="images\item\material\yellowdye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="images\item\material\common\" />
     <Folder Include="images\item\material\epic\" />
+    <Folder Include="images\item\material\rare\" />
+    <Folder Include="images\item\material\uncommon\" />
   </ItemGroup>
 
 </Project>
