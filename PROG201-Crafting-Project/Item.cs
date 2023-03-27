@@ -37,5 +37,7 @@ namespace PROG201_Crafting_Project
         public int Value { get; set; }
 
         public int Count { get; set; }
+
+        public Item Clone() => (Item)this.MemberwiseClone();
     }
 }

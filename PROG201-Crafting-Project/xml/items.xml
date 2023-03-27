@@ -11,7 +11,7 @@
 
 	<npc1>
 		<items>
-			<item rarity="0" type="0" image="reddye" name="Red Dye" desc="A bottle of red dye" value="15" count="1"></item>
+			<item rarity="0" type="0" image="reddye" name="Red Dye" desc="A bottle of red dye" value="15" count="5"></item>
 			<item rarity="1" type="0" image="purpleedye" name="Purple Dye" desc="A bottle of purple dye" value="30" count="1"></item>
 		</items>
 	</npc1>

@@ -12,6 +12,7 @@
     <Grid Background="#FF74C245">
         <Button Content="Craft" HorizontalAlignment="Left" Margin="233,101,0,0" VerticalAlignment="Top" Height="46" Width="73" Click="Craft_Click"/>
         <Button Content="Inventory" HorizontalAlignment="Left" Margin="95,101,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Inventory_Click"/>
+        <Button Content="Supplier" HorizontalAlignment="Center" Margin="0,101,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Supply_Click"/>
 
     </Grid>
 </Page>

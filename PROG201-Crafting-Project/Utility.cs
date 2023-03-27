@@ -81,6 +81,38 @@ namespace PROG201_Crafting_Project
             }
         }
 
+        public static List<Character> LoadCharactersXML()
+        {
+            string path = "../../../xml/characters.xml";
+            List<Character> Characters = new List<Character>();
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNode root = xml.DocumentElement;
+            XmlNodeList CharacterList = root.SelectNodes("/characters/character");
+            xml.AppendChild(root);
+            foreach (XmlElement character in CharacterList)
+            {
+                string name = character.GetAttribute("name");
+                int gold = Convert.ToInt32(character.GetAttribute("gold"));
+                int xp = Convert.ToInt32(character.GetAttribute("xp"));
+                string i_file = character.GetAttribute("i_file");
+                string i_node = character.GetAttribute("i_node");
+
+                Characters.Add
+                    (new Character
+                        (
+                            name,
+                            gold,
+                            xp,
+                            i_file,
+                            i_node
+                        )
+                    );
+            }
+
+            return Characters;
+        }
+
         public static List<Item> LoadItemsXML(string FileName, string NodePath)
         {
             string path = "../../../xml/" + FileName + ".xml";

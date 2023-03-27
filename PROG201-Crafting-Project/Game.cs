@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using static PROG201_Crafting_Project.Utility;
 
 namespace PROG201_Crafting_Project
 {
@@ -12,7 +13,11 @@ namespace PROG201_Crafting_Project
     {
         public Craft Crafter;
 
+        public Store Vendor;
+
         public Character Player;
+
+        public List<Character> NPCs;
 
         public BindingList<Item> PlayerInventory;
 
@@ -24,12 +29,12 @@ namespace PROG201_Crafting_Project
         {
             Crafter = new Craft();
 
+            Vendor = new Store();
+
             Player = new Character("Alex", 200, 0, "items", "player");
+
+            NPCs = LoadCharactersXML();
         }
-
-        public void BindPlayerInventory() => PlayerInventory = new BindingList<Item>(Player.Inventory);
-
-        public void BindPlayerRecipes() => PlayerRecipes = new BindingList<Recipe>(Crafter.CheckRecipes(Player.Inventory));
 
     }
 }

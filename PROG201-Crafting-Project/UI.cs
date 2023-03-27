@@ -46,6 +46,17 @@ namespace PROG201_Crafting_Project
             }
         }
 
+        public BindingList<Item> BindList(List<Item> List)
+        {
+            return new BindingList<Item>(List);
+        }
+
+        public BindingList<Recipe> BindList(List<Recipe> List)
+        {
+            return new BindingList<Recipe>(List);
+        }
+
+
         public void SetGridSource(DataGrid grid, BindingList<Item> List) => grid.ItemsSource = List;
 
         public void SetGridSource(DataGrid grid, BindingList<Recipe> List) => grid.ItemsSource = List;

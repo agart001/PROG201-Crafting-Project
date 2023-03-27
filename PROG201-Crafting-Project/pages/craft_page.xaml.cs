@@ -63,7 +63,7 @@ namespace PROG201_Crafting_Project.pages
         {
             MainWindow.Game.Crafter.CraftItem(MainWindow.Game.Player.Inventory, dtgrd_Recipe.SelectedItem as Recipe);
 
-            MainWindow.Game.BindPlayerRecipes();
+            MainWindow.Game.PlayerRecipes = MainWindow.UINav.BindList(MainWindow.Game.Crafter.CheckRecipes(MainWindow.Game.Player.Inventory));
             MainWindow.UINav.SetGridSource(dtgrd_Recipe, MainWindow.Game.PlayerRecipes);
             dtgrd_Recipe.SelectedIndex = -1;
 

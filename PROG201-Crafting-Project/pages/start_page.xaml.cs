@@ -27,14 +27,20 @@ namespace PROG201_Crafting_Project.pages
 
         private void Craft_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Game.BindPlayerRecipes();
+            MainWindow.Game.PlayerRecipes = MainWindow.UINav.BindList(MainWindow.Game.Crafter.CheckRecipes(MainWindow.Game.Player.Inventory));
             MainWindow.UINav.UpdatePage("craft");
         }
 
         private void Inventory_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Game.BindPlayerInventory();
+            MainWindow.Game.PlayerInventory = MainWindow.UINav.BindList(MainWindow.Game.Player.Inventory);
             MainWindow.UINav.UpdatePage("inventory");
-        }  
+        }
+
+        private void Supply_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Game.PlayerInventory = MainWindow.UINav.BindList(MainWindow.Game.Player.Inventory);
+            MainWindow.UINav.UpdatePage("supply");
+        }
     }
 }

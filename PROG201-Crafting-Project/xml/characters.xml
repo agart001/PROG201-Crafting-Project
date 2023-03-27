@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<characters>
+	<character name="Bob" gold="10000" xp="1000" i_file="items" i_node="npc1" />
+</characters>
