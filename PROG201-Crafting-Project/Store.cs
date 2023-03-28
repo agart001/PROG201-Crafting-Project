@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static PROG201_Crafting_Project.Utility;
 
 namespace PROG201_Crafting_Project
 {
@@ -11,8 +12,9 @@ namespace PROG201_Crafting_Project
 
         void AddItem(List<Item> buyer_inventory, Item item, int amount)
         {
-            Item i_item = buyer_inventory.Find(i => i.Name == item.Name);
+            List<Item> matches = buyer_inventory.FindAll(i => i.Name == item.Name);
 
+            Item i_item = matches.Find(i => CompareItems(i, item, 0) && CompareItems(i, item, 1));
             Item sold_item = item.Clone();
             sold_item.Count = amount;
 

@@ -82,6 +82,18 @@ namespace PROG201_Crafting_Project
             }
         }
 
+        public static bool CompareItems(Item item_1, Item item_2, int type)
+        {
+            bool result = false;
+
+            switch (type)
+            {
+                case 0: if(item_1.Rarity == item_2.Rarity) result= true; break;
+                case 1: if (item_1.Source == item_2.Source) result = true; break;
+            }
+            return result;
+        }
+
         public static List<Character> LoadCharactersXML()
         {
             string path = "../../../xml/characters.xml";

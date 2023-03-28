@@ -84,7 +84,7 @@ namespace PROG201_Crafting_Project
             CalcRarity(item);
         }
 
-        void RemoveItems(List<Item> _inventory, Recipe _recipe)
+        void RemoveIngredients(List<Item> _inventory, Recipe _recipe)
         {
             foreach (Item ingredient in _recipe.Ingredients)
             {
@@ -95,34 +95,29 @@ namespace PROG201_Crafting_Project
             }
         }
 
-        void AddItem(List<Item> _inventory, Item result)
+        void AddResult(List<Item> _inventory, Item result)
         {
-            Item item = _inventory.Find(i_item => i_item.Name == result.Name);
-
             GenerateItem(result);
 
-            if (item == null)
+            List<Item> matches = _inventory.FindAll(i => i.Name == result.Name);
+
+            Item i_item = matches.Find(i => CompareItems(i, result, 0) && CompareItems(i, result, 1));
+
+            if (i_item != null)
             {
-                _inventory.Add(result);
+                i_item.Count += result.Count;
             }
             else
             {
-                if (item.Rarity == result.Rarity && item.Source == result.Source)
-                {
-                    item.Count += result.Count;
-                }
-                else
-                {
-                    _inventory.Add(result);
-                }
+                _inventory.Add(result);
             }
 
         }
 
         void ExchangeItems(List<Item> _inventory, Recipe _recipe)
         {
-            RemoveItems(_inventory, _recipe);
-            AddItem(_inventory, _recipe.Result);
+            RemoveIngredients(_inventory, _recipe);
+            AddResult(_inventory, _recipe.Result);
         }
 
         public void CraftItem(List<Item> _inventory, Recipe _recipe)

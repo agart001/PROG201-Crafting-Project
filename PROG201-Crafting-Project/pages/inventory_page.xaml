@@ -15,7 +15,14 @@
         <Grid.DataContext>
             <PROG201_Crafting_Project:Game/>
         </Grid.DataContext>
-        <DataGrid x:Name="dtgrd_Inventory" ItemsSource="{Binding Path=PlayerInventory}" Margin="22,33,460,79" 
+
+        <Grid x:Name="grd_Banner" Background="#FFCE7171" Margin="25,10,392,354">
+            <TextBlock x:Name="tb_C_Name" Text="Name" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Background="#FFCC9C9C" Width="80"/>
+            <TextBlock x:Name="tb_XP" Text="XP" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FFCC9C9C" Width="55" Margin="118,0,0,0"/>
+            <TextBlock x:Name="tb_Gold" Text="Gold" HorizontalAlignment="Left" Margin="247,0,0,0" VerticalAlignment="Center" Background="#FFCC9C9C" Width="55"/>
+        </Grid>
+
+        <DataGrid x:Name="dtgrd_Inventory" ItemsSource="{Binding PlayerInventory}" Margin="25,70,457,82" Padding="0,0,0,0"
                   SelectionChanged="dtgrd_Inventory_SelectionChanged" SelectionUnit="FullRow" 
                   AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
             <DataGrid.Columns>
@@ -27,7 +34,8 @@
                 <DataGridTextColumn Header="Count" Binding="{Binding Count}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="103,376,0,0" VerticalAlignment="Top" Height="41" Width="156" Click="Button_Click"/>
+
+        <Button Content="Back" HorizontalAlignment="Left" Margin="103,381,0,0" VerticalAlignment="Top" Height="41" Width="156" Click="Button_Click"/>
 
         <Grid x:Name="grd_Item" Margin="381,41,49,53" Background="#FFBB8787">
             <Image x:Name="img_Item" Stretch="Fill" HorizontalAlignment="Left" Height="176" Margin="20,20,0,0" VerticalAlignment="Top" Width="320"/>

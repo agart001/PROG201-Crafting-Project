@@ -61,6 +61,13 @@ namespace PROG201_Crafting_Project
 
         public void SetGridSource(DataGrid grid, BindingList<Recipe> List) => grid.ItemsSource = List;
 
+        public void SetBannerSource(Character character, List<TextBlock> blocks)
+        {
+            blocks[0].Text = $"Name: {character.Name}";
+            blocks[1].Text = $"XP: {character.XP}";
+            blocks[2].Text = $"Gold: {character.Gold}";
+        }
+
         public void SelectedGrid(DataGrid grid, DataGrid subgrid)
         {
             if (grid.SelectedItem == null && grid.Items.Count == 0) return;

@@ -23,6 +23,8 @@ namespace PROG201_Crafting_Project.pages
     {
         List<TextBlock> GridTextBlocks;
 
+        List<TextBlock> BannerTextBlocks;
+
         public craft_page()
         {
             InitializeComponent();
@@ -36,10 +38,18 @@ namespace PROG201_Crafting_Project.pages
                 tb_Count,
                 tb_Desc
             };
+
+            BannerTextBlocks = new List<TextBlock>
+            {
+                tb_C_Name,
+                tb_XP,
+                tb_Gold
+            };
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            MainWindow.UINav.SetBannerSource(MainWindow.Game.Player, BannerTextBlocks);
             MainWindow.UINav.SetGridSource(dtgrd_Recipe, MainWindow.Game.PlayerRecipes);
 
             grd_Recipe.Visibility = Visibility.Hidden;
@@ -62,6 +72,8 @@ namespace PROG201_Crafting_Project.pages
         private void Craft_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.Game.Crafter.CraftItem(MainWindow.Game.Player.Inventory, dtgrd_Recipe.SelectedItem as Recipe);
+
+            MainWindow.UINav.SetBannerSource(MainWindow.Game.Player, BannerTextBlocks);
 
             MainWindow.Game.PlayerRecipes = MainWindow.UINav.BindList(MainWindow.Game.Crafter.CheckRecipes(MainWindow.Game.Player.Inventory));
             MainWindow.UINav.SetGridSource(dtgrd_Recipe, MainWindow.Game.PlayerRecipes);

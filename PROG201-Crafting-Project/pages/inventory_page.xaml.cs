@@ -25,6 +25,8 @@ namespace PROG201_Crafting_Project.pages
     {
         List<TextBlock> GridTextBlocks;
 
+        List<TextBlock> BannerTextBlocks;
+
         public inventory_page()
         { 
             InitializeComponent();
@@ -38,6 +40,13 @@ namespace PROG201_Crafting_Project.pages
                 tb_Count,
                 tb_Desc
             };
+
+            BannerTextBlocks = new List<TextBlock>
+            {
+                tb_C_Name,
+                tb_XP,
+                tb_Gold
+            };
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,6 +56,7 @@ namespace PROG201_Crafting_Project.pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            MainWindow.UINav.SetBannerSource(MainWindow.Game.Player, BannerTextBlocks);
             MainWindow.UINav.SetGridSource(dtgrd_Inventory, MainWindow.Game.PlayerInventory);
             grd_Item.Visibility = Visibility.Hidden;
         }

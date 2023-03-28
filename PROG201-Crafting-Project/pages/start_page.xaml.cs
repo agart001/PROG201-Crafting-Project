@@ -42,5 +42,11 @@ namespace PROG201_Crafting_Project.pages
             MainWindow.Game.PlayerInventory = MainWindow.UINav.BindList(MainWindow.Game.Player.Inventory);
             MainWindow.UINav.UpdatePage("supply");
         }
+
+        private void Customer_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Game.PlayerInventory = MainWindow.UINav.BindList(MainWindow.Game.Player.Inventory);
+            MainWindow.UINav.UpdatePage("customer");
+        }
     }
 }
