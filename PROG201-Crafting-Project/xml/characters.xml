@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <characters>
-	<character name="Bob" gold="10000" xp="1000" i_file="items" i_node="trader" />
-	<character name="Ann" gold="10000" xp="20" i_file="items" i_node="customer"/>
+	<character type="0" name="Bob" gold="10" xp="100" i_file="items" i_node="trader" />
+	<character type="0" name="Ann" gold="10000" xp="20" i_file="items" i_node="customer"/>
 </characters>

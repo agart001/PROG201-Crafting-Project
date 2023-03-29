@@ -35,8 +35,6 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Content="Back" HorizontalAlignment="Left" Margin="103,381,0,0" VerticalAlignment="Top" Height="41" Width="156" Click="Button_Click"/>
-
         <Grid x:Name="grd_Item" Margin="381,41,49,53" Background="#FFBB8787">
             <Image x:Name="img_Item" Stretch="Fill" HorizontalAlignment="Left" Height="176" Margin="20,20,0,0" VerticalAlignment="Top" Width="320"/>
 
@@ -50,6 +48,8 @@
 
             <TextBlock x:Name="tb_Desc" HorizontalAlignment="Left" Margin="20,260,0,0" TextWrapping="Wrap" Text="Item Desc" VerticalAlignment="Top" Height="48" Width="320" Background="#FFE9D8D8"/>
         </Grid>
+
+        <Button Content="Back" HorizontalAlignment="Left" Margin="103,381,0,0" VerticalAlignment="Top" Height="41" Width="156" Click="Back_Click"/>
 
     </Grid>
 </Page>

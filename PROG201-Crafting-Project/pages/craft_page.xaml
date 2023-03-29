@@ -61,6 +61,6 @@
             <Button x:Name="btn_Craft" Content="Craft" HorizontalAlignment="Center"  Margin="0,348,0,0"  VerticalAlignment="Top" Height="41" Width="156" Click="Craft_Click"/>
         </Grid>
 
-        <Button Content="Back" HorizontalAlignment="Left" Margin="119,387,0,0" VerticalAlignment="Top" Height="41" Width="156" Click="Button_Click"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="119,387,0,0" VerticalAlignment="Top" Height="41" Width="156" Click="Back_Click"/>
     </Grid>
 </Page>

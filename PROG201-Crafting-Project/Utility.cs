@@ -23,65 +23,6 @@ namespace PROG201_Crafting_Project
 
         public static string ConvertToLower(string str) { return str.ToLower(); }
 
-
-        public static void Print(string str) => WriteLine(str);
-
-
-        public static string InputStr()
-        {
-            string input = ReadLine();
-            char[] char_array = input.ToArray();
-
-            bool digit = false;
-
-            foreach (char c in char_array)
-            {
-                if (Char.IsDigit(c))
-                {
-                    digit = true;
-                }
-            }
-
-            if (digit)
-            {
-                Print("-ERROR- non string -- re enter");
-                return InputStr();
-            }
-            else
-            {
-                return input;
-            }
-        }
-
-        public static int InputInt()
-        {
-
-            string input = ReadLine();
-            int int_input;
-            char[] char_array = input.ToArray();
-
-            bool digit = true;
-
-            foreach (char c in char_array)
-            {
-                if (!Char.IsDigit(c))
-                {
-                    digit = false;
-                }
-            }
-
-            if (digit)
-            {
-                int_input = Convert.ToInt32(input);
-                return int_input;
-            }
-            else
-            {
-                Print("-ERROR- non int -- re enter");
-                return InputInt();
-            }
-        }
-
         public static bool CompareItems(Item item_1, Item item_2, int type)
         {
             bool result = false;
@@ -105,22 +46,25 @@ namespace PROG201_Crafting_Project
             xml.AppendChild(root);
             foreach (XmlElement character in CharacterList)
             {
+                Character.CharType type = (Character.CharType)Convert.ToInt32(character.GetAttribute("type"));
+
                 string name = character.GetAttribute("name");
+
                 int gold = Convert.ToInt32(character.GetAttribute("gold"));
                 int xp = Convert.ToInt32(character.GetAttribute("xp"));
+
                 string i_file = character.GetAttribute("i_file");
                 string i_node = character.GetAttribute("i_node");
 
-                Characters.Add
-                    (new Character
+                Characters.Add(new Character
                         (
+                            type,
                             name,
                             gold,
                             xp,
                             i_file,
                             i_node
-                        )
-                    );
+                        ));
             }
 
             return Characters;
@@ -160,6 +104,7 @@ namespace PROG201_Crafting_Project
 
                 int value = Convert.ToInt32(_recipe.GetAttribute("value"));
                 int count = Convert.ToInt32(_recipe.GetAttribute("count"));
+                int xp = Convert.ToInt32(_recipe.GetAttribute("xp"));
 
                 XmlNodeList IngredientsList = _recipe.SelectNodes("ingredients/ingredient");
                 List<Item> _ingredients = ParseItems(IngredientsList);
@@ -179,7 +124,8 @@ namespace PROG201_Crafting_Project
                         Desc = _recipe.GetAttribute("desc"),
 
                         Value = value,
-                        Count= count
+                        Count= count,
+                        XP = xp
                     },
                     Ingredients = _ingredients
                 });

@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using static PROG201_Crafting_Project.Utility;
 
 namespace PROG201_Crafting_Project
@@ -48,7 +52,7 @@ namespace PROG201_Crafting_Project
             buyer.Gold -= cost;
         }
 
-        public void BuyItem(Character buyer, Character seller, Item item, int amount)
+        void BuyItem(Character buyer, Character seller, Item item, int amount)
         {
             if (buyer.Gold - (item.Value * amount) < 0 || amount > item.Count) return;
 
@@ -67,6 +71,59 @@ namespace PROG201_Crafting_Project
             }
 
             ApplyCost(buyer, seller, cost);
+        }
+
+        BindingList<Item> SellerType(Character seller)
+        {
+            BindingList<Item> items;
+
+            if (seller.Type == Character.CharType.Player)
+            {
+                items = seller.GetCraftedItems();
+            }
+            else { items = seller.GetBoundInventory(); }
+
+            return items;
+        }
+
+        public void StoreLoaded(UI ui, Character buyer, Character seller,
+            DataGrid buyer_grid, DataGrid seller_grid,
+            List<TextBlock> buyer_banner, List<TextBlock> seller_banner,
+            Grid item_grid)
+        {
+            ui.SetBannerSource(buyer, buyer_banner);
+            ui.SetBannerSource(seller, seller_banner);
+
+            ui.SetGridSource(buyer_grid, buyer.GetBoundInventory());
+            ui.SetGridSource(seller_grid, SellerType(seller));
+
+            item_grid.Visibility = Visibility.Hidden;
+        }
+
+        public void StoreClick(UI ui, Character buyer, Character seller,
+            DataGrid buyer_grid, DataGrid seller_grid, 
+            List<TextBlock> buyer_banner, List<TextBlock> seller_banner,
+            Grid item_grid, TextBox buy_input)
+        {
+            Item item = seller_grid.SelectedItem as Item;
+            int amount = Convert.ToInt32(buy_input.Text);
+            BuyItem(buyer, seller, item, amount);
+
+            buyer.SetBoundInventory();
+            seller.SetBoundInventory();
+
+            BindingList<Item> buyer_inventory = buyer.GetBoundInventory();
+            BindingList<Item> seller_inventory = SellerType(seller);
+
+            ui.SetGridSource(buyer_grid, buyer_inventory);
+            ui.SetGridSource(seller_grid,seller_inventory);
+
+            ui.SetBannerSource(buyer, buyer_banner);
+            ui.SetBannerSource(seller, seller_banner);
+
+            seller_grid.SelectedIndex = -1;
+
+            item_grid.Visibility = Visibility.Hidden;
         }
     }
 }

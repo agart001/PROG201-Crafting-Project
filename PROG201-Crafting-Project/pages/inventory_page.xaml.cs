@@ -49,22 +49,32 @@ namespace PROG201_Crafting_Project.pages
             };
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow.UINav.UpdatePage("start");
-        }
-
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            MainWindow.UINav.SetBannerSource(MainWindow.Game.Player, BannerTextBlocks);
-            MainWindow.UINav.SetGridSource(dtgrd_Inventory, MainWindow.Game.PlayerInventory);
-            grd_Item.Visibility = Visibility.Hidden;
+            MainWindow.Game.Player.InventoryLoaded
+                (
+                    MainWindow.UINav,
+                    dtgrd_Inventory,
+                    grd_Item, 
+                    BannerTextBlocks
+                );
         }
 
         private void dtgrd_Inventory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            grd_Item.Visibility = Visibility.Visible;
-            MainWindow.UINav.SelectedData(MainWindow.Game.PlayerInventory, dtgrd_Inventory, img_Item, GridTextBlocks);
+            MainWindow.UINav.SelectionChanged
+                (
+                    MainWindow.Game.Player,
+                    dtgrd_Inventory,
+                    grd_Item,
+                    img_Item,
+                    GridTextBlocks
+                );
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.UINav.UpdatePage("start");
         }
     }
 }

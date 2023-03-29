@@ -49,37 +49,44 @@ namespace PROG201_Crafting_Project.pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            MainWindow.UINav.SetBannerSource(MainWindow.Game.Player, BannerTextBlocks);
-            MainWindow.UINav.SetGridSource(dtgrd_Recipe, MainWindow.Game.PlayerRecipes);
-
-            grd_Recipe.Visibility = Visibility.Hidden;
+            MainWindow.Game.Crafter.CraftLoaded
+                (
+                    MainWindow.UINav,
+                    MainWindow.Game.Player,
+                    dtgrd_Recipe,
+                    grd_Recipe,
+                    BannerTextBlocks
+                );
         }
 
         private void dtgrd_Recipe_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            MainWindow.UINav.SelectedData(MainWindow.Game.PlayerRecipes, dtgrd_Recipe, img_Recipe, GridTextBlocks);
-            if (dtgrd_Recipe.SelectedIndex != -1) MainWindow.UINav.SelectedGrid(dtgrd_Recipe, dtgrd_Ingredients);
-
-            grd_Recipe.Visibility = Visibility.Visible;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow.UINav.UpdatePage("start");
+            MainWindow.UINav.SelectionChanged
+                (
+                    MainWindow.Game.Player,
+                    dtgrd_Recipe,
+                    dtgrd_Ingredients,
+                    grd_Recipe,
+                    img_Recipe,
+                    GridTextBlocks
+                );
         }
 
         private void Craft_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Game.Crafter.CraftItem(MainWindow.Game.Player.Inventory, dtgrd_Recipe.SelectedItem as Recipe);
+            MainWindow.Game.Crafter.CraftClick
+                (
+                    MainWindow.UINav,
+                    MainWindow.Game.Player,
+                    dtgrd_Recipe,
+                    grd_Recipe,
+                    BannerTextBlocks
+                );
+        }
 
-            MainWindow.UINav.SetBannerSource(MainWindow.Game.Player, BannerTextBlocks);
-
-            MainWindow.Game.PlayerRecipes = MainWindow.UINav.BindList(MainWindow.Game.Crafter.CheckRecipes(MainWindow.Game.Player.Inventory));
-            MainWindow.UINav.SetGridSource(dtgrd_Recipe, MainWindow.Game.PlayerRecipes);
-            dtgrd_Recipe.SelectedIndex = -1;
-
-            grd_Recipe.Visibility = Visibility.Hidden;
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.UINav.UpdatePage("start");
         }
     }
 }

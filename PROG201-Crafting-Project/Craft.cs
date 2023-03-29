@@ -4,6 +4,8 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using static PROG201_Crafting_Project.Utility;
 
 namespace PROG201_Crafting_Project
@@ -17,14 +19,14 @@ namespace PROG201_Crafting_Project
             Recipes = LoadRecipesXML();
         }
 
-        bool CheckCraftability(List<Item> _inventory, Recipe _recipe)
+        bool CheckCraftability(List<Item> inventory, Recipe recipe)
         {
             bool craftable = false;
-            bool[] useable = new bool[_recipe.Ingredients.Count];
+            bool[] useable = new bool[recipe.Ingredients.Count];
             int index = 0;
-            foreach (Item ingredient in _recipe.Ingredients)
+            foreach (Item ingredient in recipe.Ingredients)
             {
-                Item item = _inventory.Find(i_item => i_item.Name == ingredient.Name);
+                Item item = inventory.Find(i_item => i_item.Name == ingredient.Name);
                 if (item == null) break;
 
                 if (item.Count >= ingredient.Count) 
@@ -40,13 +42,28 @@ namespace PROG201_Crafting_Project
             return craftable;
         }
 
-        void CalcRarity(Item item)
+        public List<Recipe> CheckRecipes(List<Item> inventory)
+        {
+            List<Recipe> recipes = new List<Recipe>();
+
+            foreach (Recipe recipe in Recipes)
+            {
+                if (CheckCraftability(inventory, recipe))
+                {
+                    recipes.Add(recipe);
+                }
+            }
+
+            return recipes;
+        }
+
+        Item.ItemRarity CalcRarity(Item item)
         {
             Item.ItemRarity base_rarity = item.Rarity;
             int i_rarity = (int)base_rarity;
             int len = Enum.GetNames(typeof(Item.ItemRarity)).Length;
 
-            if(i_rarity+ 2 > len) { return; }
+            if(i_rarity+ 2 > len) { return base_rarity; }
 
             int seed = Rand.Next(0, 10);
 
@@ -67,8 +84,7 @@ namespace PROG201_Crafting_Project
                 item.Rarity = base_rarity + 2;
             }
 
-
-            if(item.Rarity != base_rarity) { CalcValue(item); }
+            return base_rarity;
         }
 
         void CalcValue(Item item)
@@ -79,27 +95,37 @@ namespace PROG201_Crafting_Project
             item.Value = (int)calc_value;
         }
 
-        void GenerateItem(Item item)
+        void CalcXP(Item item)
         {
-            CalcRarity(item);
+            double factor = ((int)item.Rarity) + 1;
+            double applied = ((factor * 10) + 100) / 100;
+            double calc_value = item.XP * applied;
+            item.XP = (int)calc_value;
         }
 
-        void RemoveIngredients(List<Item> _inventory, Recipe _recipe)
-        {
-            foreach (Item ingredient in _recipe.Ingredients)
-            {
-                Item item = _inventory.Find(i_item => i_item.Name == ingredient.Name);
+        void GenerateItem(Item item)
+        { 
+            Item.ItemRarity base_rarity = CalcRarity(item);
+            if (item.Rarity != base_rarity) { CalcValue(item); }
+            if (item.Rarity != base_rarity) { CalcXP(item); }
+        }
 
-                if (item.Count - ingredient.Count <= 0) { _inventory.Remove(item); }
+        void RemoveIngredients(List<Item> inventory, Recipe recipe)
+        {
+            foreach (Item ingredient in recipe.Ingredients)
+            {
+                Item item = inventory.Find(i_item => i_item.Name == ingredient.Name);
+
+                if (item.Count - ingredient.Count <= 0) { inventory.Remove(item); }
                 else { item.Count -= ingredient.Count; }
             }
         }
 
-        void AddResult(List<Item> _inventory, Item result)
+        void AddResult(List<Item> inventory, Item result)
         {
             GenerateItem(result);
 
-            List<Item> matches = _inventory.FindAll(i => i.Name == result.Name);
+            List<Item> matches = inventory.FindAll(i => i.Name == result.Name);
 
             Item i_item = matches.Find(i => CompareItems(i, result, 0) && CompareItems(i, result, 1));
 
@@ -109,39 +135,53 @@ namespace PROG201_Crafting_Project
             }
             else
             {
-                _inventory.Add(result);
+                inventory.Add(result);
             }
 
         }
 
-        void ExchangeItems(List<Item> _inventory, Recipe _recipe)
+        void ExchangeItems(List<Item> inventory, Recipe recipe)
         {
-            RemoveIngredients(_inventory, _recipe);
-            AddResult(_inventory, _recipe.Result);
+            Item result = recipe.Result;
+
+            RemoveIngredients(inventory, recipe);
+            AddResult(inventory, result);
         }
 
-        public void CraftItem(List<Item> _inventory, Recipe _recipe)
+        public void CraftItem(Character character, Recipe recipe)
         {
+            List<Item> inventory = character.Inventory;
+            Item result = recipe.Result;
 
-            if(CheckCraftability(_inventory, _recipe))
-            {
-                ExchangeItems(_inventory, _recipe);
-            }
+            if (CheckCraftability(inventory, recipe) != true) return;
+
+            ExchangeItems(inventory, recipe);
+            character.XP += result.XP;
         }
 
-        public List<Recipe> CheckRecipes(List<Item> _inventory)
+        public void CraftLoaded(UI ui, Character character, DataGrid datagrid, Grid grid, List<TextBlock> banner)
         {
-            List<Recipe> _recipes = new List<Recipe>();
+            ui.SetBannerSource(character, banner);
+            ui.SetGridSource(datagrid, character.GetBoundRecipes());
 
-            foreach(Recipe _recipe in Recipes) 
-            {
-                if(CheckCraftability(_inventory, _recipe))
-                {
-                    _recipes.Add(_recipe);
-                }
-            }
+            grid.Visibility = Visibility.Hidden;
+        }
 
-            return _recipes;
+        public void CraftClick(UI ui, Character character, DataGrid datagrid, Grid grid, List<TextBlock> banner)
+        {
+            Recipe recipe = datagrid.SelectedItem as Recipe;
+
+            if (recipe == null) return;
+
+            CraftItem(character, recipe);
+
+            ui.SetBannerSource(character, banner);
+
+            character.SetBoundRecipes(this);
+            ui.SetGridSource(datagrid, character.GetBoundRecipes());
+            datagrid.SelectedIndex = -1;
+
+            grid.Visibility = Visibility.Hidden;
         }
 
     }

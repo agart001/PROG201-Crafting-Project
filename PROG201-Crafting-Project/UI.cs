@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -21,41 +22,12 @@ namespace PROG201_Crafting_Project
             main = frame;
         }
 
-        //update game page
         public void UpdatePage(string _page)
         {
             string page = "pages/" + _page + "_page.xaml";
             Uri uri = new Uri(page, UriKind.Relative);
             main.Source = uri;
         }
-
-        public void ToggleVis(UIElement element)
-        {
-            Visibility show = Visibility.Visible;
-            Visibility hide = Visibility.Hidden;
-
-            Visibility vis = element.Visibility;
-
-            if (vis == show)
-            {
-                element.Visibility = hide;
-            }
-            else if (vis == hide)
-            {
-                element.Visibility = show;
-            }
-        }
-
-        public BindingList<Item> BindList(List<Item> List)
-        {
-            return new BindingList<Item>(List);
-        }
-
-        public BindingList<Recipe> BindList(List<Recipe> List)
-        {
-            return new BindingList<Recipe>(List);
-        }
-
 
         public void SetGridSource(DataGrid grid, BindingList<Item> List) => grid.ItemsSource = List;
 
@@ -68,7 +40,7 @@ namespace PROG201_Crafting_Project
             blocks[2].Text = $"Gold: {character.Gold}";
         }
 
-        public void SelectedGrid(DataGrid grid, DataGrid subgrid)
+        void SelectedGrid(DataGrid grid, DataGrid subgrid)
         {
             if (grid.SelectedItem == null && grid.Items.Count == 0) return;
 
@@ -97,7 +69,7 @@ namespace PROG201_Crafting_Project
             blocks[5].Text = $"Description: {item.Desc}";
         }
 
-        public void SelectedData(BindingList<Item> List, DataGrid grid, Image image, List<TextBlock> blocks)
+        void SelectedData(BindingList<Item> List, DataGrid grid, Image image, List<TextBlock> blocks)
         {
             if (grid.SelectedItem != null && grid.Items.Count != 0)
             {
@@ -107,7 +79,7 @@ namespace PROG201_Crafting_Project
             }
         }
 
-        public void SelectedData(BindingList<Recipe> List, DataGrid grid, Image image, List<TextBlock> blocks)
+        void SelectedData(BindingList<Recipe> List, DataGrid grid, Image image, List<TextBlock> blocks)
         {
             if (grid.SelectedItem != null && grid.Items.Count != 0)
             {
@@ -117,6 +89,21 @@ namespace PROG201_Crafting_Project
 
                 GridItem(ResultItem, image, blocks);
             }
+        }
+
+
+        public void SelectionChanged(Character character, DataGrid datagrid, Grid grid, Image img, List<TextBlock> textblocks)
+        {
+            SelectedData(character.GetBoundInventory(), datagrid, img, textblocks);
+            grid.Visibility = Visibility.Visible;
+        }
+
+        public void SelectionChanged(Character character, DataGrid datagrid, DataGrid subgrid, Grid grid, Image img, List<TextBlock> textblocks)
+        {
+            SelectedData(character.GetBoundRecipes(), datagrid, img, textblocks);
+            if (datagrid.SelectedIndex != -1) SelectedGrid(datagrid, subgrid);
+
+            grid.Visibility = Visibility.Visible;
         }
     }
 }
