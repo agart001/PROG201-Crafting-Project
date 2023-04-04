@@ -71,6 +71,14 @@ namespace PROG201_Crafting_Project
             }
 
             ApplyCost(buyer, seller, cost);
+
+            MessageBox.Show
+            (
+                $"{buyer.Name} Bought: {item.Name}\n\r" +
+                "------------------\n\r" +
+                $"Buy Price: {item.Value}\n\r" +
+                $"{buyer.Name}'s Gold: {buyer.Gold}"
+            );
         }
 
         BindingList<Item> SellerType(Character seller)

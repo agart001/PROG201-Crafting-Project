@@ -19,17 +19,6 @@ namespace PROG201_Crafting_Project
             Recipes = LoadRecipesXML();
         }
 
-        Item BiasItemSource(List<Item> items)
-        {
-            Item item = null;
-
-            List<Item> sorted = items.OrderBy(i => i.Source).ToList();
-
-            item = sorted.First();
-
-            return item;
-        }
-
         bool CheckCraftability(List<Item> inventory, Recipe recipe)
         {
             bool craftable = false;
@@ -79,7 +68,7 @@ namespace PROG201_Crafting_Project
 
             int seed = Rand.Next(0, 10);
 
-            seed = 6;
+            //seed = 6;
 
             if(seed <= 7)
             {
@@ -118,20 +107,20 @@ namespace PROG201_Crafting_Project
         void GenerateItem(Item item)
         { 
             Item.ItemRarity base_rarity = CalcRarity(item);
-            if (item.Rarity != base_rarity) { CalcValue(item); }
-            if (item.Rarity != base_rarity) { CalcXP(item); }
-        }
-
-        void RemoveIngredients(List<Item> inventory, Recipe recipe)
-        {
-            foreach (Item ingredient in recipe.Ingredients)
-            {
-                List<Item> items = inventory.FindAll(i_item => i_item.Name == ingredient.Name);
-                Item item = BiasItemSource(items);
-
-                if (item.Count - ingredient.Count <= 0) { inventory.Remove(item); }
-                else { item.Count -= ingredient.Count; }
+            if (item.Rarity != base_rarity) 
+            { 
+                CalcValue(item);
+                CalcXP(item);
             }
+
+            MessageBox.Show
+            (
+                $"Crafted: {item.Name}\n\r" +
+                "------------------\n\r" +
+                $"Rarirty: {item.Rarity}\n\r" +
+                $"Value: {item.Value}\n\r" +
+                $"XP: {item.XP}"
+            );
         }
 
         void AddResult(List<Item> inventory, Item result)
@@ -151,6 +140,29 @@ namespace PROG201_Crafting_Project
                 inventory.Add(result);
             }
 
+        }
+
+        Item BiasItemSource(List<Item> items)
+        {
+            Item item;
+
+            List<Item> sorted = items.OrderBy(i => i.Source).ToList();
+
+            item = sorted.First();
+
+            return item;
+        }
+
+        void RemoveIngredients(List<Item> inventory, Recipe recipe)
+        {
+            foreach (Item ingredient in recipe.Ingredients)
+            {
+                List<Item> items = inventory.FindAll(i_item => i_item.Name == ingredient.Name);
+                Item item = BiasItemSource(items);
+
+                if (item.Count - ingredient.Count <= 0) { inventory.Remove(item); }
+                else { item.Count -= ingredient.Count; }
+            }
         }
 
         void ExchangeItems(List<Item> inventory, Recipe recipe)
