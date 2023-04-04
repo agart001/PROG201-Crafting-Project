@@ -19,6 +19,17 @@ namespace PROG201_Crafting_Project
             Recipes = LoadRecipesXML();
         }
 
+        Item BiasItemSource(List<Item> items)
+        {
+            Item item = null;
+
+            List<Item> sorted = items.OrderBy(i => i.Source).ToList();
+
+            item = sorted.First();
+
+            return item;
+        }
+
         bool CheckCraftability(List<Item> inventory, Recipe recipe)
         {
             bool craftable = false;
@@ -27,6 +38,7 @@ namespace PROG201_Crafting_Project
             foreach (Item ingredient in recipe.Ingredients)
             {
                 Item item = inventory.Find(i_item => i_item.Name == ingredient.Name);
+
                 if (item == null) break;
 
                 if (item.Count >= ingredient.Count) 
@@ -114,7 +126,8 @@ namespace PROG201_Crafting_Project
         {
             foreach (Item ingredient in recipe.Ingredients)
             {
-                Item item = inventory.Find(i_item => i_item.Name == ingredient.Name);
+                List<Item> items = inventory.FindAll(i_item => i_item.Name == ingredient.Name);
+                Item item = BiasItemSource(items);
 
                 if (item.Count - ingredient.Count <= 0) { inventory.Remove(item); }
                 else { item.Count -= ingredient.Count; }

@@ -48,7 +48,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid x:Name="grd_Item" Grid.Column="3" Grid.Row="1" Margin="10,10,10,10" Background="#FF9FB789">
+        <Grid x:Name="grd_Item" Grid.Column="3" Grid.Row="1" Margin="10,10,10,10" Background="#FFCE7171">
             <Grid.DataContext>
                 <PROG201_Crafting_Project:Recipe/>
             </Grid.DataContext>

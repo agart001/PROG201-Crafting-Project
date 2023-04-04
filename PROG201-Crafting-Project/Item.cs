@@ -27,8 +27,8 @@ namespace PROG201_Crafting_Project
         public enum ItemSource
         {
             Found,
-            Crafted,
-            Bought
+            Bought,
+            Crafted
         }
 
         public ItemRarity Rarity { get; set; }
