@@ -64,8 +64,8 @@ namespace PROG201_Crafting_Project
             blocks[0].Text = $"Name: {item.Name}";
             blocks[1].Text = $"{rarity}";
             blocks[2].Text = $"{type}";
-            blocks[3].Text = $"Value: {value}";
-            blocks[4].Text = $"Count: {count}";
+            blocks[3].Text = $"{value}";
+            blocks[4].Text = $"{count}";
             blocks[5].Text = $"Description: {item.Desc}";
         }
 

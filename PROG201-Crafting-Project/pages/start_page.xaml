@@ -10,9 +10,23 @@
 
 
     <Grid Background="#FF74C245">
-        <Button Content="Craft" HorizontalAlignment="Left" Margin="233,101,0,0" VerticalAlignment="Top" Height="46" Width="73" Click="Craft_Click"/>
-        <Button Content="Inventory" HorizontalAlignment="Left" Margin="95,101,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Inventory_Click"/>
-        <Button Content="Supplier" HorizontalAlignment="Left" Margin="95,197,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Supply_Click"/>
-        <Button Content="Customer" HorizontalAlignment="Left" Margin="234,197,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Customer_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="1" Grid.Row="1" Content="Craft" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Craft_Click" Height="70" Width="140"/>
+        <Button Grid.Column="1" Grid.Row="3" Content="Inventory" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Inventory_Click" Height="70" Width="140"/>
+        <Button Grid.Column="3" Grid.Row="1" Content="Supplier" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Supply_Click" Height="70" Width="140"/>
+        <Button Grid.Column="3" Grid.Row="3" Content="Customer" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Customer_Click" Height="70" Width="140"/>
     </Grid>
 </Page>
