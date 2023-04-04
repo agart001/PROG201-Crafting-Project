@@ -36,12 +36,12 @@ namespace PROG201_Crafting_Project.pages
 
             GridTextBlocks = new List<TextBlock>
             {
-                tb_Item_Name,
-                tb_Item_Rarity,
-                tb_Item_Type,
-                tb_Item_Value,
-                tb_Item_Count,
-                tb_Item_Desc
+                tb_Name,
+                tb_Rarity,
+                tb_Type,
+                tb_Value,
+                tb_Count,
+                tb_Desc
             };
 
             PlayerBanner = new List<TextBlock>

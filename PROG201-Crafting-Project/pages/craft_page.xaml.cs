@@ -54,7 +54,7 @@ namespace PROG201_Crafting_Project.pages
                     MainWindow.UINav,
                     MainWindow.Game.Player,
                     dtgrd_Recipe,
-                    grd_Recipe,
+                    grd_Item,
                     BannerTextBlocks
                 );
         }
@@ -66,8 +66,8 @@ namespace PROG201_Crafting_Project.pages
                     MainWindow.Game.Player,
                     dtgrd_Recipe,
                     dtgrd_Ingredients,
-                    grd_Recipe,
-                    img_Recipe,
+                    grd_Item,
+                    img_Item,
                     GridTextBlocks
                 );
         }
@@ -79,7 +79,7 @@ namespace PROG201_Crafting_Project.pages
                     MainWindow.UINav,
                     MainWindow.Game.Player,
                     dtgrd_Recipe,
-                    grd_Recipe,
+                    grd_Item,
                     BannerTextBlocks
                 );
         }
