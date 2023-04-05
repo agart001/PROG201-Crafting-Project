@@ -36,6 +36,7 @@ namespace PROG201_Crafting_Project.pages
                 tb_Type,
                 tb_Value,
                 tb_Count,
+                tb_Unit,
                 tb_Desc
             };
 

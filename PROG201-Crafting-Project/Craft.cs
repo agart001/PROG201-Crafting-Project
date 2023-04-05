@@ -68,7 +68,7 @@ namespace PROG201_Crafting_Project
 
             int seed = Rand.Next(0, 10);
 
-            //seed = 6;
+            seed = 6;
 
             if(seed <= 7)
             {
@@ -134,12 +134,12 @@ namespace PROG201_Crafting_Project
             if (i_item != null)
             {
                 i_item.Count += result.Count;
+                i_item.ConvertUnitToHigher();
             }
             else
             {
                 inventory.Add(result);
             }
-
         }
 
         Item BiasItemSource(List<Item> items)
@@ -161,7 +161,7 @@ namespace PROG201_Crafting_Project
                 Item item = BiasItemSource(items);
 
                 if (item.Count - ingredient.Count <= 0) { inventory.Remove(item); }
-                else { item.Count -= ingredient.Count; }
+                else { item.Count -= ingredient.Count; item.ConvertUnitTolower(); }
             }
         }
 

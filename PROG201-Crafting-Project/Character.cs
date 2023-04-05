@@ -24,7 +24,7 @@ namespace PROG201_Crafting_Project
 
         public string Name { get; set; }
 
-        public int Gold { get; set; }
+        public double Gold { get; set; }
 
         public int XP { get; set; }
 
@@ -34,7 +34,7 @@ namespace PROG201_Crafting_Project
         BindingList<Item> BoundInventory { get; set; }
         BindingList<Recipe> BoundRecipes { get; set; }
 
-        public Character(CharType type, string _name, int _gold, int _xp, string _invfile, string _node)
+        public Character(CharType type, string _name, double _gold, int _xp, string _invfile, string _node)
         {
             Type = type;
 

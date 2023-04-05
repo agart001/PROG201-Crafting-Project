@@ -14,7 +14,7 @@ namespace PROG201_Crafting_Project
     public class Store
     {
 
-        void AddItem(List<Item> buyer_inventory, Item item, int amount)
+        void AddItem(List<Item> buyer_inventory, Item item, double amount)
         {
             List<Item> matches = buyer_inventory.FindAll(i => i.Name == item.Name);
 
@@ -25,6 +25,7 @@ namespace PROG201_Crafting_Project
             if (i_item != null)
             {
                 i_item.Count += amount;
+                i_item.ConvertUnitToHigher();
             }
             else
             {
@@ -32,34 +33,35 @@ namespace PROG201_Crafting_Project
             }
         }
 
-        void ItemRemoved(List<Item> buyer_inventory, List<Item> seller_inventory, Item item, int amount)
+        void ItemRemoved(List<Item> buyer_inventory, List<Item> seller_inventory, Item item, double amount)
         {
             seller_inventory.Remove(item);
 
             AddItem(buyer_inventory, item, amount);
         }
 
-        void ItemDecremented(List<Item> buyer_inventory, Item item, int amount)
+        void ItemDecremented(List<Item> buyer_inventory, Item item, double amount)
         {
             item.Count -= amount;
+            item.ConvertUnitTolower();
 
             AddItem(buyer_inventory, item, amount);
         }
         
-        void ApplyCost(Character buyer, Character seller, int cost)
+        void ApplyCost(Character buyer, Character seller, double cost)
         {
             seller.Gold += cost;
             buyer.Gold -= cost;
         }
 
-        void BuyItem(Character buyer, Character seller, Item item, int amount)
+        void BuyItem(Character buyer, Character seller, Item item, double amount)
         {
             if (buyer.Gold - (item.Value * amount) < 0 || amount > item.Count) return;
 
             List<Item> b_inv = buyer.Inventory;
             List<Item> s_inv = seller.Inventory;
 
-            int cost = item.Value * amount;
+            double cost = Math.Round(item.Value * amount,2);
 
             if(item.Count - amount <= 0) 
             {
@@ -72,12 +74,31 @@ namespace PROG201_Crafting_Project
 
             ApplyCost(buyer, seller, cost);
 
+        }
+
+        void ProfitMargin(List<Recipe> recipes, Item item)
+        {
+            Recipe recipe = recipes.Find(i=> i.Result.Name == item.Name);
+            Item result = recipe.Result;
+
+            double cost = 0;
+
+            foreach(Item ingredient in recipe.Ingredients) 
+            {
+                cost += ingredient.Count * ingredient.Value;
+            }
+
+            double profit = result.Value - cost;
+            double percent = Math.Round((profit / result.Value) * 100, 2);
+
             MessageBox.Show
             (
-                $"{buyer.Name} Bought: {item.Name}\n\r" +
-                "------------------\n\r" +
-                $"Buy Price: {item.Value}\n\r" +
-                $"{buyer.Name}'s Gold: {buyer.Gold}"
+                $"Sale Breakdown:\n\r{item.Name}\n\r" +
+                "--------------------\n\r" +
+                $"Cost: {cost}\n\r" +
+                $"Price: {item.Value}\n\r" +
+                $"Profit: {profit}\n\r" +
+                $"Percentage: {percent}%"
             );
         }
 
@@ -114,8 +135,17 @@ namespace PROG201_Crafting_Project
             Grid item_grid, TextBox buy_input)
         {
             Item item = seller_grid.SelectedItem as Item;
-            int amount = Convert.ToInt32(buy_input.Text);
+            double amount = Convert.ToDouble(buy_input.Text);
+
             BuyItem(buyer, seller, item, amount);
+
+            
+            if(seller.Type == Character.CharType.Player)
+            {
+                Craft craft = new Craft();
+                ProfitMargin(craft.Recipes, item);
+            }
+            
 
             buyer.SetBoundInventory();
             seller.SetBoundInventory();

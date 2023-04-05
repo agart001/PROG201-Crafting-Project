@@ -1,31 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <recipes>
-	<recipe rarity="1" type="0" source="2" image="purpledye" name="Purple Dye" desc="A bottle of purple dye" value="30" count="1" xp="35">
+	<recipe rarity="1" type="1" source="2" image="purpledye" 
+			name="Chamomile Tea" 
+			desc="Chamomile tea. It has a golden yellow color and a mild, slightly sweet, and floral taste. It is often consumed before bed to help promote relaxation and improve sleep quality. "
+			value="35" xp="30"
+			count="1" countunit="Cup">
 		<ingredients>
-			<ingredient rarity="0" type="0" source="0" image="reddye" name="Red Dye" desc="A bottle of red dye" value="15" count="2"></ingredient>
-			<ingredient rarity="0" type="0" source="0" image="bluedye" name="Blue Dye" desc="A bottle of blue dye" value="15" count="1"></ingredient>
+			<ingredient rarity="0" type="0" source="0" name="Chamomile" desc="" value="15" count="1" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Water" desc="" value="10" count="1" countunit="Cup"/>
 		</ingredients>
 	</recipe>
-	
-	<recipe rarity="1" type="0" source="2" image="greendye" name="Green Dye" desc="A bottle of green dye" value="30" count="1" xp="35">
+	<recipe rarity="2" type="1" source="2" image="purpledye"
+			name="Sleeping Potion"
+			desc="Sleeping Potion. A powerful brew, made from a combination of herbs and teas. Anyone who consumes it will instantly fall into dreamless sleep until the effect wares off."
+			value="35" xp="30"
+			count="2" countunit="Cup">
 		<ingredients>
-			<ingredient rarity="0" type="0" source="0" image="yellowdye" name="Yellow Dye" desc="A bottle of yellow dye" value="15" count="1"></ingredient>
-			<ingredient rarity="0" type="0" source="0" image="bluedye" name="Blue Dye" desc="A bottle of blue dye" value="15" count="1"></ingredient>
-		</ingredients>
-	</recipe>
-
-	<recipe rarity="1" type="0" source="2" image="browndye" name="Brown Dye" desc="A bottle of brown dye" value="30" count="1" xp="40">
-		<ingredients>
-			<ingredient rarity="0" type="0" source="0" image="reddye" name="Red Dye" desc="A bottle of red dye" value="15" count="1"></ingredient>
-			<ingredient rarity="0" type="0" source="0" image="yellowdye" name="Yellow Dye" desc="A bottle of yellow dye" value="15" count="1"></ingredient>
-			<ingredient rarity="0" type="0" source="0" image="bluedye" name="Blue Dye" desc="A bottle of blue dye" value="15" count="1"></ingredient>
-		</ingredients>
-	</recipe>
-
-	<recipe rarity="2" type="0" source="2" image="cyandye" name="Cyan Dye" desc="A bottle of cyan dye" value="60" count="1" xp="45">
-		<ingredients>
-			<ingredient rarity="1" type="0" source="0" image="greendye" name="Green Dye" desc="A bottle of green dye" value="30" count="1"></ingredient>
-			<ingredient rarity="0" type="0" source="0" image="bluedye" name="Blue Dye" desc="A bottle of blue dye" value="15" count="1"></ingredient>
+			<ingredient rarity="1" type="1" source="2" name="Chamomile Tea" desc="" value="35" count="1" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Ashwagandha" desc="" value="15" count=".0625" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Lavendar" desc="" value="15" count=".25" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Lemon Balm" desc="" value="15" count=".25" countunit="Tsp"/>
 		</ingredients>
 	</recipe>
 </recipes>

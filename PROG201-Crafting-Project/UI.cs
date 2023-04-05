@@ -66,7 +66,8 @@ namespace PROG201_Crafting_Project
             blocks[2].Text = $"{type}";
             blocks[3].Text = $"{value}";
             blocks[4].Text = $"{count}";
-            blocks[5].Text = $"Description: {item.Desc}";
+            blocks[5].Text = $"{item.CountUnit}";
+            blocks[6].Text = $"Description:     {item.Desc}";
         }
 
         void SelectedData(BindingList<Item> List, DataGrid grid, Image image, List<TextBlock> blocks)

@@ -50,7 +50,7 @@ namespace PROG201_Crafting_Project
 
                 string name = character.GetAttribute("name");
 
-                int gold = Convert.ToInt32(character.GetAttribute("gold"));
+                double gold = Convert.ToDouble(character.GetAttribute("gold"));
                 int xp = Convert.ToInt32(character.GetAttribute("xp"));
 
                 string i_file = character.GetAttribute("i_file");
@@ -102,8 +102,8 @@ namespace PROG201_Crafting_Project
 
                 BitmapImage image = ParseItemImage(type, rarity, _recipe.GetAttribute("image"));
 
-                int value = Convert.ToInt32(_recipe.GetAttribute("value"));
-                int count = Convert.ToInt32(_recipe.GetAttribute("count"));
+                double value = Convert.ToDouble(_recipe.GetAttribute("value"));
+                double count = Convert.ToDouble(_recipe.GetAttribute("count"));
                 int xp = Convert.ToInt32(_recipe.GetAttribute("xp"));
 
                 XmlNodeList IngredientsList = _recipe.SelectNodes("ingredients/ingredient");
@@ -113,20 +113,22 @@ namespace PROG201_Crafting_Project
                 {
                     //object initialization with public class fields
                     Result = new Item
-                    {
-                        Rarity = rarity,
-                        Type = type,
-                        Source = source,
+                    (
+                        rarity,
+                        type,
+                        source,
 
-                        Image = image,
+                        image,
 
-                        Name = _recipe.GetAttribute("name"),
-                        Desc = _recipe.GetAttribute("desc"),
+                        _recipe.GetAttribute("name"),
+                        _recipe.GetAttribute("desc"),
 
-                        Value = value,
-                        Count= count,
-                        XP = xp
-                    },
+                        value,
+                        xp,
+
+                        count,
+                        _recipe.GetAttribute("countunit")
+                    ),
                     Ingredients = _ingredients
                 });
             }
@@ -161,23 +163,29 @@ namespace PROG201_Crafting_Project
 
                 BitmapImage image = ParseItemImage(type, rarity, _item.GetAttribute("image"));
 
-                int value = Convert.ToInt32(_item.GetAttribute("value"));
-                int count = Convert.ToInt32(_item.GetAttribute("count"));
+                double value = Convert.ToDouble(_item.GetAttribute("value"));
+                double count = Convert.ToDouble(_item.GetAttribute("count"));
 
-                Items.Add(new Item
-                {
-                    Rarity = rarity,
-                    Type = type,
-                    Source = source,
+                Item item = new Item
+                (
+                    rarity,
+                    type,
+                    source,
 
-                    Image = image,
+                    image,
 
-                    Name = _item.GetAttribute("name"),
-                    Desc = _item.GetAttribute("desc"),
+                    _item.GetAttribute("name"),
+                    _item.GetAttribute("desc"),
 
-                    Value = value,
-                    Count = count
-                });
+                    value,
+
+                    count,
+                    _item.GetAttribute("countunit")
+                );
+
+                item.ConvertUnitToHigher();
+
+                Items.Add(item);
             }
 
             return Items;
