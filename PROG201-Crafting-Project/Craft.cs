@@ -30,10 +30,16 @@ namespace PROG201_Crafting_Project
 
                 if (item == null) break;
 
+                item.ConvertToTsp();
+                ingredient.ConvertToTsp();
+                
                 if (item.Count >= ingredient.Count) 
                 {
                     useable[index] = true;
                 }
+
+                item.ConvertUnitToHigher();
+                ingredient.ConvertUnitToHigher();
 
                 index++;
             }
@@ -133,8 +139,7 @@ namespace PROG201_Crafting_Project
 
             if (i_item != null)
             {
-                i_item.Count += result.Count;
-                i_item.ConvertUnitToHigher();
+                i_item.Combine(result, true);
             }
             else
             {
@@ -160,8 +165,9 @@ namespace PROG201_Crafting_Project
                 List<Item> items = inventory.FindAll(i_item => i_item.Name == ingredient.Name);
                 Item item = BiasItemSource(items);
 
-                if (item.Count - ingredient.Count <= 0) { inventory.Remove(item); }
-                else { item.Count -= ingredient.Count; item.ConvertUnitTolower(); }
+                item.Combine(ingredient, false);
+
+                if (item.Count <= 0) { inventory.Remove(item); }
             }
         }
 

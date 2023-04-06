@@ -45,7 +45,7 @@ namespace PROG201_Crafting_Project
 
         public string Desc { get; set; }
 
-
+        //value per tsp
         public double Value { get; set; }
 
         public int XP { get; set; }
@@ -68,7 +68,7 @@ namespace PROG201_Crafting_Project
             Count = count;
             CountUnit = countunit;
 
-            if (Count < 1) ConvertUnitTolower();
+            if (Count < 1) ConvertUnitToLower();
             else ConvertUnitToHigher();
         }
 
@@ -85,7 +85,7 @@ namespace PROG201_Crafting_Project
             Count = count;
             CountUnit = countunit;
 
-            if (Count < 1) ConvertUnitTolower();
+            if (Count < 1) ConvertUnitToLower();
             else ConvertUnitToHigher();
         }
 
@@ -94,16 +94,16 @@ namespace PROG201_Crafting_Project
 
         public void ConvertUnitToHigher()
         {
-            switch (CountUnit.ToLower()) 
+            switch (CountUnit.ToLower())
             {
-                case "tsp": if(Count >= 3) { Count = 1; CountUnit = "Tbsp"; } goto case "tbsp";
-                case "tbsp": if(Count >= 16) { Count = 1; CountUnit = "Cup"; } goto case "cup";
+                case "tsp": if (Count >= 3) { Count /= 3; CountUnit = "Tbsp"; } goto case "tbsp";
+                case "tbsp": if (Count >= 16) { Count /= 16; CountUnit = "Cup"; } goto case "cup";
                 case "cup":
                     break;
             }
         }
 
-        public void ConvertUnitTolower()
+        public void ConvertUnitToLower()
         {
             switch (CountUnit.ToLower())
             {
@@ -113,5 +113,31 @@ namespace PROG201_Crafting_Project
                     break;
             }
         }
+
+
+        public void ConvertToTsp()
+        {
+            switch (CountUnit.ToLower())
+            {
+                case "cup": Count *= 48; CountUnit = "Tsp"; break;
+                case "tbsp": Count *= 3; CountUnit = "Tsp"; break;
+                case "tsp":
+                    break;
+            }
+        }
+
+        public void Combine(Item item, bool add)
+        {
+            this.ConvertToTsp();
+            item.ConvertToTsp();
+
+            switch(add)
+            {
+                case true: this.Count += item.Count; this.ConvertUnitToHigher(); break;
+                case false: this.Count -= item.Count; this.ConvertUnitToLower(); break;
+            }
+        }
+
+
     }
 }

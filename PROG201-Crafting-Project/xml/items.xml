@@ -2,51 +2,55 @@
 <AllItems>
 	<player>
 		<items>
-			<item rarity="0" type="0" source="1" image="bluedye" name="Water" desc="A vessel containing water" value="10" count=".5" countunit="Cup"></item>
+			<item rarity="0" type="0" source="1" image="bluedye" name="Water" desc="A vessel containing water" value=".05" count=".5" countunit="Cup"></item>
+			
 			<item rarity="0" type="0" source="0" image="reddye"
 				  name="Chamomile"
 				  desc="Dried Matricaria recutita. The flowers are harvested when they are in full bloom and then dried to preserve their medicinal and aromatic properties.The dried flowers are small and have a slightly curved shape. They are pale yellow in color and have a pleasant, floral aroma."
-				  value="15" count="1" countunit="Tsp"/>
+				  value=".10" count="1" countunit="Tsp"/>
+			
 			<item rarity="0" type="0" source="0" image="browndye"
 				  name="Ashwagandha"
 				  desc="Withania somnifera. Ashwagandha is an herb that is commonly used in traditional Ayurvedic medicine, and it is believed to have various health benefits.The roots of the Ashwagandha plant are dried and then ground into a fine powder, which can be consumed orally. The powder is light brown in color and has a slightly bitter taste."
-				  value="15" count=".0625" countunit="Tsp"/>
+				  value=".10" count=".0625" countunit="Tsp"/>
+			
 			<item rarity="0" type="0" source="0" image="purpleedye"
 				  name="Lavendar"
 				  desc="Lavandula angustifolia. The dried flowers are harvested when the plant is in full bloom. The dried flowers are small, about 1-2 cm in length, and have a deep purple-blue color with a greyish tone.The flowers have a strong and pleasant aroma that is floral and herbaceous."
-				  value="15" count=".25" countunit="Tsp"/>
+				  value=".10" count=".25" countunit="Tsp"/>
+			
 			<item rarity="0" type="0" source="0" image="yellowdye"
 				  name="Lemon Balm"
 				  desc="Melissa officinalis.The leaves are harvested when the plant is in full bloom. The dried leaves are small, about 1-2 cm in length, and have a green color with a slightly yellowish hue.They have a pleasant, lemony aroma that is mildly sweet and herbaceous."
-				  value="15" count=".25" countunit="Tsp"/>
+				  value=".10" count=".25" countunit="Tsp"/>
 		</items>
 	</player>
 
 	<trader>
 		<items>
-			<item rarity="0" type="0" source="1" image="bluedye" name="Water" desc="A vessel containing water" value="10" count="2" countunit="Cup"></item>
+			<item rarity="0" type="0" source="1" image="bluedye" name="Water" desc="A vessel containing water" value=".05" count="2" countunit="Cup"></item>
 			<item rarity="0" type="0" source="1" image="reddye"
 				  name="Chamomile"
 				  desc="Dried Matricaria recutita. The flowers are harvested when they are in full bloom and then dried to preserve their medicinal and aromatic properties.The dried flowers are small and have a slightly curved shape. They are pale yellow in color and have a pleasant, floral aroma."
-				  value="15" count="1" countunit="Tsp"/>
+				  value=".10" count="1" countunit="Tsp"/>
 			<item rarity="0" type="0" source="1" image="browndye"
 				  name="Ashwagandha"
 				  desc="Withania somnifera. Ashwagandha is an herb that is commonly used in traditional Ayurvedic medicine, and it is believed to have various health benefits.The roots of the Ashwagandha plant are dried and then ground into a fine powder, which can be consumed orally. The powder is light brown in color and has a slightly bitter taste."
-				  value="15" count=".0625" countunit="Tsp"/>
+				  value=".10" count="2" countunit="Tbsp"/>
 			<item rarity="0" type="0" source="1" image="purpleedye"
 				  name="Lavendar"
 				  desc="Lavandula angustifolia. The dried flowers are harvested when the plant is in full bloom. The dried flowers are small, about 1-2 cm in length, and have a deep purple-blue color with a greyish tone.The flowers have a strong and pleasant aroma that is floral and herbaceous."
-				  value="15" count=".25" countunit="Tsp"/>
+				  value=".10" count="2" countunit="Tbsp"/>
 			<item rarity="0" type="0" source="1" image="yellowdye"
 				  name="Lemon Balm"
 				  desc="Melissa officinalis.The leaves are harvested when the plant is in full bloom. The dried leaves are small, about 1-2 cm in length, and have a green color with a slightly yellowish hue.They have a pleasant, lemony aroma that is mildly sweet and herbaceous."
-				  value="15" count=".25" countunit="Tsp"/>
+				  value=".10" count="2" countunit="Tbsp"/>
 		</items>
 	</trader>
 
 	<customer>
 		<items>
-			<item rarity="0" type="0" source="0" image="bluedye" name="Water" desc="A vessel containing water" value="10" count="2" countunit="Cup"></item>
+			<item rarity="0" type="0" source="0" image="bluedye" name="Water" desc="A vessel containing water" value=".05" count="2" countunit="Cup"></item>
 		</items>
 	</customer>
 </AllItems>

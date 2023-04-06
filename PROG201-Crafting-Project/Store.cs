@@ -20,32 +20,33 @@ namespace PROG201_Crafting_Project
 
             Item i_item = matches.Find(i => CompareItems(i, item, 0) && CompareItems(i, item, 1));
             Item sold_item = item.Clone();
+            sold_item.ConvertToTsp();
             sold_item.Count = amount;
 
             if (i_item != null)
             {
-                i_item.Count += amount;
-                i_item.ConvertUnitToHigher();
+                i_item.Combine(sold_item, true);
             }
             else
             {
+                if(sold_item.Count > 1) { sold_item.ConvertUnitToHigher(); }
+                else { sold_item.ConvertUnitToLower(); }
+                
                 buyer_inventory.Add(sold_item);
             }
         }
 
-        void ItemRemoved(List<Item> buyer_inventory, List<Item> seller_inventory, Item item, double amount)
+        void ItemRemoved(List<Item> seller_inventory, Item item)
         {
             seller_inventory.Remove(item);
-
-            AddItem(buyer_inventory, item, amount);
         }
 
-        void ItemDecremented(List<Item> buyer_inventory, Item item, double amount)
+        void ItemDecremented(Item item, double amount)
         {
-            item.Count -= amount;
-            item.ConvertUnitTolower();
 
-            AddItem(buyer_inventory, item, amount);
+            item.Count -= amount;
+
+            item.ConvertUnitToHigher();
         }
         
         void ApplyCost(Character buyer, Character seller, double cost)
@@ -54,8 +55,24 @@ namespace PROG201_Crafting_Project
             buyer.Gold -= cost;
         }
 
+        double TspAmount(Item item, double amount)
+        {
+            switch (item.CountUnit.ToLower())
+            {
+                case "cup": amount *= 48; break;
+                case "tbsp": amount *= 3; break;
+                case "tsp":
+                    break;
+            }
+
+            return amount;
+        }
+
         void BuyItem(Character buyer, Character seller, Item item, double amount)
         {
+            amount = TspAmount(item, amount);
+            item.ConvertToTsp();
+
             if (buyer.Gold - (item.Value * amount) < 0 || amount > item.Count) return;
 
             List<Item> b_inv = buyer.Inventory;
@@ -63,18 +80,22 @@ namespace PROG201_Crafting_Project
 
             double cost = Math.Round(item.Value * amount,2);
 
-            if(item.Count - amount <= 0) 
+
+            if (item.Count - amount <= 0) 
             {
-                ItemRemoved(b_inv, s_inv, item, amount);
+                ItemRemoved(s_inv, item);
             }
             else
             {
-                ItemDecremented(b_inv, item, amount);
+                ItemDecremented(item, amount);
             }
+
+            AddItem(b_inv, item, amount);
 
             ApplyCost(buyer, seller, cost);
 
         }
+
 
         void ProfitMargin(List<Recipe> recipes, Item item)
         {
@@ -136,6 +157,8 @@ namespace PROG201_Crafting_Project
         {
             Item item = seller_grid.SelectedItem as Item;
             double amount = Convert.ToDouble(buy_input.Text);
+
+            if (item.CountUnit.ToLower() == "tsp" && amount < 0) return;
 
             BuyItem(buyer, seller, item, amount);
 
