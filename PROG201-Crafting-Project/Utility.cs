@@ -149,7 +149,7 @@ namespace PROG201_Crafting_Project
         static BitmapImage ParseItemImage(Item.ItemType type, string file) 
         {
             string type_folder = ConvertToLower(type.ToString());
-            string path = $"/../images/item/{type_folder}/{file}.BMP";
+            string path = $"/../images/item/{type_folder}/{file}";
             BitmapImage image = new BitmapImage(new Uri(path, UriKind.Relative));
 
             if (image == null)

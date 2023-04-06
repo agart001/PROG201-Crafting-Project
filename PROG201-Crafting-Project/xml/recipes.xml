@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <recipes>
-	<recipe rarity="1" type="1" source="2" image="purpledye" 
+	<recipe rarity="1" type="1" source="2" image="chamomiletea.png" 
 			name="Chamomile Tea" 
 			desc="Chamomile tea. It has a golden yellow color and a mild, slightly sweet, and floral taste. It is often consumed before bed to help promote relaxation and improve sleep quality. "
 			value="1.15" xp="30"
 			count="1" countunit="Cup">
 		<ingredients>
 			<ingredient rarity="0" type="0" source="0" name="Chamomile" desc="" value=".10" count="1" countunit="Tsp"/>
-			<ingredient rarity="0" type="0" source="0" name="Water" desc="" value=".05" count="1" countunit="Cup"/>
+			<ingredient rarity="0" type="1" source="0" name="Water" desc="" value=".05" count="1" countunit="Cup"/>
 		</ingredients>
 	</recipe>
-	<recipe rarity="2" type="1" source="2" image="purpledye"
+	<recipe rarity="2" type="1" source="2" image="sleeppotion.png"
 			name="Sleeping Potion"
 			desc="Sleeping Potion. A powerful brew, made from a combination of herbs and teas. Anyone who consumes it will instantly fall into dreamless sleep until the effect wares off."
 			value="2" xp="30"
