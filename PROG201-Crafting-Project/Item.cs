@@ -55,7 +55,7 @@ namespace PROG201_Crafting_Project
 
         public string CountUnit { get; set; }
 
-
+        //Construct Item
         public Item(ItemRarity rarity, ItemType type, ItemSource source, BitmapImage image, string name, string desc, double value, double count, string countunit)
         {
             Rarity = rarity;
@@ -72,6 +72,7 @@ namespace PROG201_Crafting_Project
             else ConvertUnitToHigher();
         }
 
+        //Construct Recipe result
         public Item(ItemRarity rarity, ItemType type, ItemSource source, BitmapImage image, string name, string desc, double value, int xp, double count, string countunit)
         {
             Rarity = rarity;
@@ -89,9 +90,9 @@ namespace PROG201_Crafting_Project
             else ConvertUnitToHigher();
         }
 
-
         public Item Clone() => (Item)this.MemberwiseClone();
 
+        //Convert to higher count unit
         public void ConvertUnitToHigher()
         {
             switch (CountUnit.ToLower())
@@ -103,6 +104,7 @@ namespace PROG201_Crafting_Project
             }
         }
 
+        //Convert to lower count unit
         public void ConvertUnitToLower()
         {
             switch (CountUnit.ToLower())
@@ -114,7 +116,7 @@ namespace PROG201_Crafting_Project
             }
         }
 
-
+        //Convert to tsp -- smallest count unit
         public void ConvertToTsp()
         {
             switch (CountUnit.ToLower())
@@ -126,6 +128,7 @@ namespace PROG201_Crafting_Project
             }
         }
 
+        //Combine items - add/subtract
         public void Combine(Item item, bool add)
         {
             this.ConvertToTsp();
@@ -133,9 +136,11 @@ namespace PROG201_Crafting_Project
 
             switch(add)
             {
-                case true: this.Count += item.Count; this.ConvertUnitToHigher(); break;
-                case false: this.Count -= item.Count; this.ConvertUnitToLower(); break;
+                case true: this.Count += item.Count; Math.Round(this.Count, 2); break;
+                case false: this.Count -= item.Count; Math.Round(this.Count, 2); break;
             }
+
+            this.ConvertUnitToHigher();
         }
 
 

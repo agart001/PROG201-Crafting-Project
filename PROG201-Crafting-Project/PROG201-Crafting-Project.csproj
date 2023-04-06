@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <None Remove="images\default.BMP" />
-    <None Remove="images\item\material\uncommon\browndye.BMP" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,13 +37,6 @@
     <Content Include="images\item\material\yellowdye.BMP">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="images\item\material\common\" />
-    <Folder Include="images\item\material\epic\" />
-    <Folder Include="images\item\material\rare\" />
-    <Folder Include="images\item\material\uncommon\" />
   </ItemGroup>
 
 </Project>

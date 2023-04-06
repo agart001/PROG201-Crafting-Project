@@ -84,7 +84,7 @@
 
                 <Label Grid.Column="3" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Value" Background="#FFE9D8D8" Margin="2,2,2,2"/>
                 <Label Grid.Column="4" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Count" Background="#FFE9D8D8" Margin="2,2,2,2"/>
-                <Label Grid.Column="5" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Count" Background="#FFE9D8D8" Margin="2,2,10,2"/>
+                <Label Grid.Column="5" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Unit" Background="#FFE9D8D8" Margin="2,2,10,2"/>
 
                 <TextBlock x:Name="tb_Rarity" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="Rarity:" TextAlignment="Center" VerticalAlignment="Center" Background="#FFE9D8D8" Margin="10,2,2,2"/>
                 <TextBlock x:Name="tb_Type" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="Type:" TextAlignment="Center" VerticalAlignment="Center" Background="#FFE9D8D8" Margin="2,2,2,2"/>

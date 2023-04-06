@@ -22,6 +22,7 @@ namespace PROG201_Crafting_Project
             main = frame;
         }
 
+        //Navigate to page, set frame source
         public void UpdatePage(string _page)
         {
             string page = "pages/" + _page + "_page.xaml";
@@ -29,10 +30,12 @@ namespace PROG201_Crafting_Project
             main.Source = uri;
         }
 
+        //Set Datagrid Source, overloads based on list type
         public void SetGridSource(DataGrid grid, BindingList<Item> List) => grid.ItemsSource = List;
 
         public void SetGridSource(DataGrid grid, BindingList<Recipe> List) => grid.ItemsSource = List;
 
+        //Set Banner display
         public void SetBannerSource(Character character, List<TextBlock> blocks)
         {
             blocks[0].Text = $"Name: {character.Name}";
@@ -40,6 +43,7 @@ namespace PROG201_Crafting_Project
             blocks[2].Text = $"Gold: {character.Gold}";
         }
 
+        //Set subgrid from datagrid -- display recipe ingredients
         void SelectedGrid(DataGrid grid, DataGrid subgrid)
         {
             if (grid.SelectedItem == null && grid.Items.Count == 0) return;
@@ -51,6 +55,7 @@ namespace PROG201_Crafting_Project
             subgrid.ItemsSource = ingredients;
         }
 
+        //Set Item grid display
         void GridItem(Item item, Image image, List<TextBlock> blocks)
         {
             string rarity = item.Rarity.ToString();
@@ -70,6 +75,7 @@ namespace PROG201_Crafting_Project
             blocks[6].Text = $"Description:     {item.Desc}";
         }
 
+        //Set datagrid source and set item grid -- overloads based on list type
         void SelectedData(BindingList<Item> List, DataGrid grid, Image image, List<TextBlock> blocks)
         {
             if (grid.SelectedItem != null && grid.Items.Count != 0)
@@ -92,7 +98,7 @@ namespace PROG201_Crafting_Project
             }
         }
 
-
+        //Datagrid selection -- overloads based on subgrid availability 
         public void SelectionChanged(Character character, DataGrid datagrid, Grid grid, Image img, List<TextBlock> textblocks)
         {
             SelectedData(character.GetBoundInventory(), datagrid, img, textblocks);

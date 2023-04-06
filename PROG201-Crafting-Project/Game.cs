@@ -19,10 +19,11 @@ namespace PROG201_Crafting_Project
 
         public List<Character> NPCs;
 
+        //Used for Data context purposes
+        //--
         public BindingList<Item> PlayerInventory;
-
         public BindingList<Recipe> PlayerRecipes;
-
+        //--
 
 
         public Game() 

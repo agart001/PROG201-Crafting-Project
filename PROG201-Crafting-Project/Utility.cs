@@ -35,8 +35,10 @@ namespace PROG201_Crafting_Project
             return result;
         }
 
+        //Load NPCs
         public static List<Character> LoadCharactersXML()
         {
+            //NPC file path setup
             string path = "../../../xml/characters.xml";
             List<Character> Characters = new List<Character>();
             XmlDocument xml = new XmlDocument();
@@ -44,6 +46,7 @@ namespace PROG201_Crafting_Project
             XmlNode root = xml.DocumentElement;
             XmlNodeList CharacterList = root.SelectNodes("/characters/character");
             xml.AppendChild(root);
+            //Parse NPCs in file
             foreach (XmlElement character in CharacterList)
             {
                 Character.CharType type = (Character.CharType)Convert.ToInt32(character.GetAttribute("type"));
@@ -70,8 +73,10 @@ namespace PROG201_Crafting_Project
             return Characters;
         }
 
+        //Load Items
         public static List<Item> LoadItemsXML(string FileName, string NodePath)
         {
+            //Item file path setup
             string path = "../../../xml/" + FileName + ".xml";
             List<Item> Items = new List<Item>();
             XmlDocument xml = new XmlDocument();
@@ -80,13 +85,16 @@ namespace PROG201_Crafting_Project
             XmlNodeList ItemsList = root.SelectNodes("/AllItems/"+NodePath+"/items/item");
             xml.AppendChild(root);
 
+            //Parse Items
             Items = ParseItems(ItemsList);
 
             return Items;
         }
 
+        //Load Recipes
         public static List<Recipe> LoadRecipesXML()
         {
+            //Recipe file path setup
             string path = "../../../xml/recipes.xml";
             List<Recipe> Recipes = new List<Recipe>();
             XmlDocument xml = new XmlDocument();
@@ -94,24 +102,25 @@ namespace PROG201_Crafting_Project
             XmlNode root = xml.DocumentElement;
             XmlNodeList RecipeList = root.SelectNodes("/recipes/recipe");
             xml.AppendChild(root);
+            //Parse recipes in file
             foreach (XmlElement _recipe in RecipeList)
             {
                 Item.ItemRarity rarity = (Item.ItemRarity)Convert.ToInt32(_recipe.GetAttribute("rarity"));
                 Item.ItemType type = (Item.ItemType)Convert.ToInt32(_recipe.GetAttribute("type"));
                 Item.ItemSource source = (Item.ItemSource)Convert.ToInt32(_recipe.GetAttribute("source"));
 
-                BitmapImage image = ParseItemImage(type, rarity, _recipe.GetAttribute("image"));
+                BitmapImage image = ParseItemImage(type, _recipe.GetAttribute("image"));
 
                 double value = Convert.ToDouble(_recipe.GetAttribute("value"));
                 double count = Convert.ToDouble(_recipe.GetAttribute("count"));
                 int xp = Convert.ToInt32(_recipe.GetAttribute("xp"));
 
                 XmlNodeList IngredientsList = _recipe.SelectNodes("ingredients/ingredient");
+                //Parse ingredients in recipe
                 List<Item> _ingredients = ParseItems(IngredientsList);
-                //add the instance to the list that will be returned from method
+
                 Recipes.Add(new Recipe
                 {
-                    //object initialization with public class fields
                     Result = new Item
                     (
                         rarity,
@@ -136,10 +145,10 @@ namespace PROG201_Crafting_Project
             return Recipes;
         }
 
-        static BitmapImage ParseItemImage(Item.ItemType type, Item.ItemRarity rarity, string file) 
+        //Parse Item image from type folder
+        static BitmapImage ParseItemImage(Item.ItemType type, string file) 
         {
             string type_folder = ConvertToLower(type.ToString());
-            string rarity_folder = ConvertToLower(rarity.ToString());
             string path = $"/../images/item/{type_folder}/{file}.BMP";
             BitmapImage image = new BitmapImage(new Uri(path, UriKind.Relative));
 
@@ -151,6 +160,7 @@ namespace PROG201_Crafting_Project
             return image;
         }
 
+        //Parse Items from Xml list
         static List<Item> ParseItems(XmlNodeList List)
         {
             List<Item> Items = new List<Item>();
@@ -161,7 +171,7 @@ namespace PROG201_Crafting_Project
                 Item.ItemType type = (Item.ItemType)Convert.ToInt32(_item.GetAttribute("type"));
                 Item.ItemSource source = (Item.ItemSource)Convert.ToInt32(_item.GetAttribute("source"));
 
-                BitmapImage image = ParseItemImage(type, rarity, _item.GetAttribute("image"));
+                BitmapImage image = ParseItemImage(type, _item.GetAttribute("image"));
 
                 double value = Convert.ToDouble(_item.GetAttribute("value"));
                 double count = Convert.ToDouble(_item.GetAttribute("count"));

@@ -6,8 +6,8 @@
 			value="1.15" xp="30"
 			count="1" countunit="Cup">
 		<ingredients>
-			<ingredient rarity="0" type="0" source="0" name="Chamomile" desc="" value="15" count="1" countunit="Tsp"/>
-			<ingredient rarity="0" type="0" source="0" name="Water" desc="" value="10" count="1" countunit="Cup"/>
+			<ingredient rarity="0" type="0" source="0" name="Chamomile" desc="" value=".10" count="1" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Water" desc="" value=".05" count="1" countunit="Cup"/>
 		</ingredients>
 	</recipe>
 	<recipe rarity="2" type="1" source="2" image="purpledye"
@@ -16,10 +16,10 @@
 			value="2" xp="30"
 			count="2" countunit="Cup">
 		<ingredients>
-			<ingredient rarity="1" type="1" source="2" name="Chamomile Tea" desc="" value="35" count="1" countunit="Tsp"/>
-			<ingredient rarity="0" type="0" source="0" name="Ashwagandha" desc="" value="15" count=".0625" countunit="Tsp"/>
-			<ingredient rarity="0" type="0" source="0" name="Lavendar" desc="" value="15" count=".25" countunit="Tsp"/>
-			<ingredient rarity="0" type="0" source="0" name="Lemon Balm" desc="" value="15" count=".25" countunit="Tsp"/>
+			<ingredient rarity="1" type="1" source="2" name="Chamomile Tea" desc="" value=".10" count="1" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Ashwagandha" desc="" value=".10" count=".0625" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Lavendar" desc="" value=".10" count=".25" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Lemon Balm" desc="" value=".10" count=".25" countunit="Tsp"/>
 		</ingredients>
 	</recipe>
 </recipes>
