@@ -11,12 +11,18 @@
   <ItemGroup>
     <None Remove="images\default.BMP" />
     <None Remove="images\item\consumable\chamomiletea.png" />
+    <None Remove="images\item\consumable\gingertea.png" />
     <None Remove="images\item\consumable\sleeppotion.png" />
+    <None Remove="images\item\consumable\speedpotion.png" />
     <None Remove="images\item\consumable\water.png" />
     <None Remove="images\item\material\ashwagandha.png" />
     <None Remove="images\item\material\chamomile.png" />
+    <None Remove="images\item\material\cinnamon.png" />
+    <None Remove="images\item\material\garlic.png" />
+    <None Remove="images\item\material\ginger.png" />
     <None Remove="images\item\material\lavender.png" />
     <None Remove="images\item\material\lemonbalm.png" />
+    <None Remove="images\item\material\redpepper.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,7 +32,13 @@
     <Content Include="images\item\consumable\chamomiletea.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="images\item\consumable\gingertea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="images\item\consumable\sleeppotion.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\item\consumable\speedpotion.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="images\item\consumable\water.png">
@@ -38,10 +50,22 @@
     <Content Include="images\item\material\chamomile.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="images\item\material\cinnamon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\item\material\garlic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\item\material\ginger.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="images\item\material\lavender.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="images\item\material\lemonbalm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\item\material\redpepper.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

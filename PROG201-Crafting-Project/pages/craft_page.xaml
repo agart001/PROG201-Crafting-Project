@@ -43,7 +43,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Type" Binding="{Binding Result.Type}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Result.Name}" />
-                <DataGridTextColumn Header="Value(Tsp)" Binding="{Binding Result.Value}" />
+                <DataGridTextColumn Header="Value(Tsp)" Binding="{Binding Result.Value, StringFormat=c}" />
                 <DataGridTextColumn Header="Count" Binding="{Binding Result.Count}" />
                 <DataGridTextColumn Header="Count" Binding="{Binding Result.CountUnit}" />
             </DataGrid.Columns>
@@ -103,7 +103,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="Value(Tsp)" Binding="{Binding Value}" />
+                    <DataGridTextColumn Header="Value(Tsp)" Binding="{Binding Value, StringFormat=c}" />
                     <DataGridTextColumn Header="Count" Binding="{Binding Count}" />
                     <DataGridTextColumn Header="Unit" Binding="{Binding CountUnit}" />
                 </DataGrid.Columns>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Media.Imaging;
 
 namespace PROG201_Crafting_Project
@@ -97,8 +98,8 @@ namespace PROG201_Crafting_Project
         {
             switch (CountUnit.ToLower())
             {
-                case "tsp": if (Count >= 3) { Count /= 3; CountUnit = "Tbsp"; } goto case "tbsp";
-                case "tbsp": if (Count >= 16) { Count /= 16; CountUnit = "Cup"; } goto case "cup";
+                case "tsp": if (Count >= 3) { Count = Math.Round(Count /= 3, 3); CountUnit = "Tbsp"; } goto case "tbsp";
+                case "tbsp": if (Count >= 16) { Count = Math.Round(Count /= 16, 3); CountUnit = "Cup"; } goto case "cup";
                 case "cup":
                     break;
             }
@@ -109,8 +110,8 @@ namespace PROG201_Crafting_Project
         {
             switch (CountUnit.ToLower())
             {
-                case "cup": if (Count < 1) { Count *= 16; CountUnit = "Tbsp"; } goto case "tbsp";
-                case "tbsp": if (Count < 1) { Count *= 3; CountUnit = "Tsp"; } goto case "tsp";
+                case "cup": if (Count < 1) { Count = Math.Round(Count *= 16, 3); CountUnit = "Tbsp"; } goto case "tbsp";
+                case "tbsp": if (Count < 1) { Count = Math.Round(Count *= 3, 3); CountUnit = "Tsp"; } goto case "tsp";
                 case "tsp":
                     break;
             }
@@ -134,10 +135,11 @@ namespace PROG201_Crafting_Project
             this.ConvertToTsp();
             item.ConvertToTsp();
 
+
             switch(add)
             {
-                case true: this.Count += item.Count; Math.Round(this.Count, 2); break;
-                case false: this.Count -= item.Count; Math.Round(this.Count, 2); break;
+                case true: this.Count += item.Count; break;
+                case false: this.Count -= item.Count; break;
             }
 
             this.ConvertUnitToHigher();

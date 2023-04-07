@@ -82,7 +82,7 @@ namespace PROG201_Crafting_Project
 
             int seed = Rand.Next(0, 10);
 
-            seed = 6;
+            seed = 8;
 
             if(seed <= 7)
             {
@@ -106,8 +106,8 @@ namespace PROG201_Crafting_Project
         {
             double factor = ((int)item.Rarity) + 1;
             double applied = ((factor * 10) + 100) / 100;
-            double calc_value = item.Value * applied;
-            item.Value = (int)calc_value;
+            double calc_value = Math.Round(item.Value * applied, 2, MidpointRounding.AwayFromZero);
+            item.Value = calc_value;
         }
 
         void CalcXP(Item item)
@@ -136,7 +136,7 @@ namespace PROG201_Crafting_Project
                 $"Crafted: {item.Name}\n\r" +
                 "------------------\n\r" +
                 $"Rarirty: {item.Rarity}\n\r" +
-                $"Value: {item.Value}\n\r" +
+                $"Value: {item.Value:C}\n\r" +
                 $"XP: {item.XP}"
             );
         }
@@ -169,6 +169,8 @@ namespace PROG201_Crafting_Project
             Item item;
 
             List<Item> sorted = items.OrderBy(i => i.Source).ToList();
+
+            if (sorted.All(i => i.Source == Item.ItemSource.Crafted)) sorted = sorted.OrderBy(i => i.Rarity).ToList();
 
             item = sorted.First();
 

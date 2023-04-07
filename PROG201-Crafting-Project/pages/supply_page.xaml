@@ -56,7 +56,7 @@
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
                 <DataGridTextColumn Header="Source" Binding="{Binding Source}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Value(Tsp)" Binding="{Binding Value}" />
+                <DataGridTextColumn Header="Value(Tsp)" Binding="{Binding Value, StringFormat=c}" />
                 <DataGridTextColumn Header="Count" Binding="{Binding Count}" />
                 <DataGridTextColumn Header="Unit" Binding="{Binding CountUnit}" />
             </DataGrid.Columns>
@@ -70,7 +70,7 @@
                 <DataGridTextColumn Header="Rarity" Binding="{Binding Rarity}" />
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Value(Tsp)" Binding="{Binding Value}" />
+                <DataGridTextColumn Header="Value(Tsp)" Binding="{Binding Value, StringFormat=c}" />
                 <DataGridTextColumn Header="Count" Binding="{Binding Count}" />
                 <DataGridTextColumn Header="Unit" Binding="{Binding CountUnit}" />
             </DataGrid.Columns>

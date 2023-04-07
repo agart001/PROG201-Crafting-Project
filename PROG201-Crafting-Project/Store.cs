@@ -34,7 +34,7 @@ namespace PROG201_Crafting_Project
             else
             {
                 //Convert sold item into base units 
-                if(sold_item.Count > 1) { sold_item.ConvertUnitToHigher(); }
+                if(sold_item.Count >= 1) { sold_item.ConvertUnitToHigher(); }
                 else { sold_item.ConvertUnitToLower(); }
                 //Add sold item to buyer's inventory
                 buyer_inventory.Add(sold_item);
@@ -50,7 +50,6 @@ namespace PROG201_Crafting_Project
         //Seller's item stock is decremented
         void ItemDecremented(Item item, double amount)
         {
-
             item.Count -= amount;
 
             Math.Round(item.Count, 2);
@@ -132,24 +131,24 @@ namespace PROG201_Crafting_Project
             }
 
             //Calc profit using item value(per tsp) and ingredient cost(per tsp)
-            result.ConvertToTsp();
-            double result_val = result.Value * result.Count;
+            item.ConvertToTsp();
+            double item_val = item.Value * item.Count;
 
             cost = Math.Round(cost,2);
-            result_val = Math.Round(result_val,2);
+            item_val = Math.Round(item_val,2);
 
-            double profit = result_val - cost;
-            double percent = Math.Round((profit / result_val) * 100, 2);
+            double profit = item_val - cost;
+            double percent = Math.Round((profit / item_val) * 100, 2);
 
-            result.ConvertUnitToHigher(); 
+            item.ConvertUnitToHigher(); 
 
             MessageBox.Show
             (
                 $"Sale Breakdown:\n\r{item.Name}\n\r" +
                 "--------------------\n\r" +
-                $"Cost: {cost}\n\r" +
-                $"Price: {result_val}\n\r" +
-                $"Profit: {profit}\n\r" +
+                $"Cost: -{cost:C}\n\r" +
+                $"Price: {item_val:C}\n\r" +
+                $"Profit: +{profit:C}\n\r" +
                 $"Percentage: {percent}%"
             );
         }

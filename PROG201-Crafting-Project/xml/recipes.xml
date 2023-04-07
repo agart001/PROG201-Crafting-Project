@@ -3,23 +3,50 @@
 	<recipe rarity="1" type="1" source="2" image="chamomiletea.png" 
 			name="Chamomile Tea" 
 			desc="Chamomile tea. It has a golden yellow color and a mild, slightly sweet, and floral taste. It is often consumed before bed to help promote relaxation and improve sleep quality. "
-			value="1.15" xp="30"
+			value=".15" xp="30"
 			count="1" countunit="Cup">
 		<ingredients>
 			<ingredient rarity="0" type="0" source="0" name="Chamomile" desc="" value=".10" count="1" countunit="Tsp"/>
 			<ingredient rarity="0" type="1" source="0" name="Water" desc="" value=".05" count="1" countunit="Cup"/>
 		</ingredients>
 	</recipe>
+
+	<recipe rarity="1" type="1" source="2" image="gingertea.png"
+			name="Ginger Tea"
+			desc="Ginger Tea. A popular herbal infusion made from the root of the ginger plant, known for its spicy and aromatic flavor. The resulting infusion has a warm and slightly pungent scent, with a hint of sweetness."
+			value=".2" xp="35"
+			count="1" countunit="Cup">
+		<ingredients>
+			<ingredient rarity="0" type="0" source="0" name="Ginger" desc="" value=".15" count="1" countunit="Tsp"/>
+			<ingredient rarity="0" type="1" source="0" name="Water" desc="" value=".05" count="1" countunit="Cup"/>
+		</ingredients>
+	</recipe>
+	
 	<recipe rarity="2" type="1" source="2" image="sleeppotion.png"
 			name="Sleeping Potion"
 			desc="Sleeping Potion. A powerful brew, made from a combination of herbs and teas. Anyone who consumes it will instantly fall into dreamless sleep until the effect wares off."
-			value="2" xp="30"
+			value=".3" xp="40"
 			count="2" countunit="Cup">
 		<ingredients>
-			<ingredient rarity="1" type="1" source="2" name="Chamomile Tea" desc="" value=".10" count="1" countunit="Tsp"/>
+			<ingredient rarity="1" type="1" source="2" name="Chamomile Tea" desc="" value=".10" count="1" countunit="Cup"/>
 			<ingredient rarity="0" type="0" source="0" name="Ashwagandha" desc="" value=".10" count=".0625" countunit="Tsp"/>
 			<ingredient rarity="0" type="0" source="0" name="Lavendar" desc="" value=".10" count=".25" countunit="Tsp"/>
 			<ingredient rarity="0" type="0" source="0" name="Lemon Balm" desc="" value=".10" count=".25" countunit="Tsp"/>
 		</ingredients>
 	</recipe>
+
+	<recipe rarity="2" type="1" source="2" image="speedpotion.png"
+		name="Speed Potion"
+		desc="Speed Potion. A powerful brew, made from a combination of herbs and teas. Anyone who consumes it will instantly become 3x faster until the effect wares off."
+		value=".4" xp="45"
+		count="2" countunit="Cup">
+		<ingredients>
+			<ingredient rarity="1" type="1" source="2" name="Ginger Tea" desc="" value=".2" count="1" countunit="Cup"/>
+			<ingredient rarity="0" type="0" source="0" name="Garlic" desc="" value=".25" count=".0625" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Cinnamon" desc="" value=".2" count=".25" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Red Pepper" desc="" value=".2" count=".25" countunit="Tsp"/>
+		</ingredients>
+	</recipe>
+	
+	
 </recipes>

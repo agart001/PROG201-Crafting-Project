@@ -2,53 +2,94 @@
 <AllItems>
 	<player>
 		<items>
-			<item rarity="0" type="1" source="1" image="water.png" name="Water" desc="A vessel containing water" value=".05" count=".5" countunit="Cup"></item>
+			<item rarity="0" type="1" source="1" image="water.png" name="Water" desc="A vessel containing water" value=".05" count="1" countunit="Cup"></item>
 			
 			<item rarity="0" type="0" source="0" image="chamomile.png"
 				  name="Chamomile"
 				  desc="Matricaria recutita. The flowers are harvested when they are in full bloom and then dried to preserve their medicinal and aromatic properties.The dried flowers are small and have a slightly curved shape. They are pale yellow in color and have a pleasant, floral aroma."
 				  value=".10" count="1" countunit="Tsp"/>
 			
-			<item rarity="0" type="0" source="0" image="ashwagandha.png"
+			<item rarity="1" type="0" source="0" image="ashwagandha.png"
 				  name="Ashwagandha"
 				  desc="Withania somnifera. Ashwagandha is an herb that is commonly used in traditional Ayurvedic medicine, and it is believed to have various health benefits.The roots of the Ashwagandha plant are dried and then ground into a fine powder, which can be consumed orally. The powder is light brown in color and has a slightly bitter taste."
-				  value=".10" count=".0625" countunit="Tsp"/>
+				  value=".2" count=".0625" countunit="Tsp"/>
 			
-			<item rarity="0" type="0" source="0" image="lavender.png"
+			<item rarity="1" type="0" source="0" image="lavender.png"
 				  name="Lavendar"
 				  desc="Lavandula angustifolia. The dried flowers are harvested when the plant is in full bloom. The dried flowers are small, about 1-2 cm in length, and have a deep purple-blue color with a greyish tone.The flowers have a strong and pleasant aroma that is floral and herbaceous."
-				  value=".10" count=".25" countunit="Tsp"/>
+				  value=".15" count=".25" countunit="Tsp"/>
 			
-			<item rarity="0" type="0" source="0" image="lemonbalm.png"
+			<item rarity="1" type="0" source="0" image="lemonbalm.png"
 				  name="Lemon Balm"
 				  desc="Melissa officinalis.The leaves are harvested when the plant is in full bloom. The dried leaves are small, about 1-2 cm in length, and have a green color with a slightly yellowish hue.They have a pleasant, lemony aroma that is mildly sweet and herbaceous."
-				  value=".10" count=".25" countunit="Tsp"/>
+				  value=".15" count=".25" countunit="Tsp"/>
+			
+			<item rarity="0" type="0" source="0" image="ginger.png"
+				  name="Ginger"
+				  desc="Zingiber officinale. Ginger is a flowering plant native to Southeast Asia. Powdered ginger has a pale yellow to light brown color and a pungent, spicy flavor. It is also commonly used in traditional medicine for its anti-inflammatory, antioxidant, and digestive properties."
+				  value=".15" count="1" countunit="Tsp"/>
+
+			<item rarity="1" type="0" source="0" image="garlic.png"
+				  name="Garlic"
+				  desc="Allium sativum. Garlic is a member of the Allium family, which also includes onions, leeks, and chives, and is known for its pungent, savory flavor and health benefits. The dried garlic is typically ground into a powder, which makes it easy to use and incorporate into recipes."
+				  value=".25" count=".0625" countunit="Tsp"/>
+
+			<item rarity="1" type="0" source="0" image="cinnamon.png"
+				  name="Cinnamon"
+				  desc="Cinnamomum verum. Cinnamon is native to Sri Lanka and has been used for thousands of years for its unique flavor and medicinal properties. Ground cinnamon is made by drying the inner bark of the cinnamon tree, which then curls up into rolls, known as cinnamon sticks. The sticks are then ground into a fine powder."
+				  value=".2" count=".25" countunit="Tsp"/>
+
+			<item rarity="1" type="0" source="0" image="redpepper.png"
+				  name="Red Pepper"
+				  desc="Capsicum annum. Red pepper is a member of the nightshade family and is closely related to other popular spices such as paprika, cayenne pepper, and chili powder. Dried red pepper has a vibrant red color and a spicy, pungent flavor."
+				  value=".2" count=".25" countunit="Tsp"/>
+			
 		</items>
 	</player>
 
 	<trader>
 		<items>
-			<item rarity="0" type="1" source="1" image="water.png" name="Water" desc="A vessel containing water" value=".05" count="2" countunit="Cup"></item>
+			<item rarity="0" type="1" source="1" image="water.png" name="Water" desc="A vessel containing water" value=".05" count="5" countunit="Cup"></item>
 
 			<item rarity="0" type="0" source="0" image="chamomile.png"
 				  name="Chamomile"
 				  desc="Matricaria recutita. The flowers are harvested when they are in full bloom and then dried to preserve their medicinal and aromatic properties.The dried flowers are small and have a slightly curved shape. They are pale yellow in color and have a pleasant, floral aroma."
-				  value=".10" count="1" countunit="Tsp"/>
+				  value=".10" count="5" countunit="Tbsp"/>
 
 			<item rarity="0" type="0" source="0" image="ashwagandha.png"
 				  name="Ashwagandha"
 				  desc="Withania somnifera. Ashwagandha is an herb that is commonly used in traditional Ayurvedic medicine, and it is believed to have various health benefits.The roots of the Ashwagandha plant are dried and then ground into a fine powder, which can be consumed orally. The powder is light brown in color and has a slightly bitter taste."
-				  value=".10" count=".0625" countunit="Tsp"/>
+				  value=".10" count="5" countunit="Tbsp"/>
 
 			<item rarity="0" type="0" source="0" image="lavender.png"
 				  name="Lavendar"
 				  desc="Lavandula angustifolia. The dried flowers are harvested when the plant is in full bloom. The dried flowers are small, about 1-2 cm in length, and have a deep purple-blue color with a greyish tone.The flowers have a strong and pleasant aroma that is floral and herbaceous."
-				  value=".10" count=".25" countunit="Tsp"/>
+				  value=".10" count="5" countunit="Tbsp"/>
 
 			<item rarity="0" type="0" source="0" image="lemonbalm.png"
 				  name="Lemon Balm"
 				  desc="Melissa officinalis.The leaves are harvested when the plant is in full bloom. The dried leaves are small, about 1-2 cm in length, and have a green color with a slightly yellowish hue.They have a pleasant, lemony aroma that is mildly sweet and herbaceous."
-				  value=".10" count=".25" countunit="Tsp"/>
+				  value=".10" count="5" countunit="Tbsp"/>
+
+			<item rarity="0" type="0" source="0" image="ginger.png"
+				  name="Ginger"
+				  desc="Zingiber officinale. Ginger is a flowering plant native to Southeast Asia. Powdered ginger has a pale yellow to light brown color and a pungent, spicy flavor. It is also commonly used in traditional medicine for its anti-inflammatory, antioxidant, and digestive properties."
+				  value=".15" count="5" countunit="Tbsp"/>
+
+			<item rarity="1" type="0" source="0" image="garlic.png"
+				  name="Garlic"
+				  desc="Allium sativum. Garlic is a member of the Allium family, which also includes onions, leeks, and chives, and is known for its pungent, savory flavor and health benefits. The dried garlic is typically ground into a powder, which makes it easy to use and incorporate into recipes."
+				  value=".25" count="5" countunit="Tbsp"/>
+
+			<item rarity="1" type="0" source="0" image="cinnamon.png"
+				  name="Cinnamon"
+				  desc="Cinnamomum verum. Cinnamon is native to Sri Lanka and has been used for thousands of years for its unique flavor and medicinal properties. Ground cinnamon is made by drying the inner bark of the cinnamon tree, which then curls up into rolls, known as cinnamon sticks. The sticks are then ground into a fine powder."
+				  value=".2" count="5" countunit="Tbsp"/>
+
+			<item rarity="1" type="0" source="0" image="redpepper.png"
+				  name="Red Pepper"
+				  desc="Capsicum annum. Red pepper is a member of the nightshade family and is closely related to other popular spices such as paprika, cayenne pepper, and chili powder. Dried red pepper has a vibrant red color and a spicy, pungent flavor."
+				  value=".2" count="5" countunit="Tbsp"/>
 		</items>
 	</trader>
 

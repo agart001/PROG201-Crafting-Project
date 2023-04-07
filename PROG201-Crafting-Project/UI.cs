@@ -40,7 +40,7 @@ namespace PROG201_Crafting_Project
         {
             blocks[0].Text = $"Name: {character.Name}";
             blocks[1].Text = $"XP: {character.XP}";
-            blocks[2].Text = $"Gold: {character.Gold}";
+            blocks[2].Text = $"Gold: {character.Gold:C}";
         }
 
         //Set subgrid from datagrid -- display recipe ingredients
@@ -61,7 +61,7 @@ namespace PROG201_Crafting_Project
             string rarity = item.Rarity.ToString();
             string type = item.Type.ToString();
 
-            string value = item.Value.ToString();
+            double value = item.Value;
             string count = item.Count.ToString();
 
             image.Source = item.Image;
@@ -69,7 +69,7 @@ namespace PROG201_Crafting_Project
             blocks[0].Text = $"Name: {item.Name}";
             blocks[1].Text = $"{rarity}";
             blocks[2].Text = $"{type}";
-            blocks[3].Text = $"{value}";
+            blocks[3].Text = $"{value:C}";
             blocks[4].Text = $"{count}";
             blocks[5].Text = $"{item.CountUnit}";
             blocks[6].Text = $"Description:     {item.Desc}";
