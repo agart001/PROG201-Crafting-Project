@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:PROG201_Crafting_Project"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <local:FractionConverter x:Key="fractionConverter"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

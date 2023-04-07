@@ -16,45 +16,46 @@
             <PROG201_Crafting_Project:Game/>
         </Grid.DataContext>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".5*"/>
             <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width=".5*"/>
             <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width=".5*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height=".75*"/>
+            </Grid.RowDefinitions>
 
-        <Grid x:Name="grd_Banner" Grid.Column="1" Grid.Row="0" Background="#FFCE7171" Margin="10,10,10,10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock x:Name="tb_C_Name" Text="Name" Grid.Column="0" Margin="10,10,10,10" TextAlignment="Center" VerticalAlignment="Center" Background="#FFCC9C9C"/>
-            <TextBlock x:Name="tb_XP" Text="XP" Grid.Column="1" Margin="10,10,10,10" TextAlignment="Center" VerticalAlignment="Center" Background="#FFCC9C9C"/>
-            <TextBlock x:Name="tb_Gold" Text="Gold" Grid.Column="2" Margin="10,10,10,10" TextAlignment="Center" VerticalAlignment="Center" Background="#FFCC9C9C"/>
-        </Grid>
+            <Grid x:Name="grd_Banner" Grid.Row="0" Background="#FFCE7171" Margin="10,10,10,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tb_C_Name" Text="Name" Grid.Column="0" Margin="10,10,10,10" TextAlignment="Center" VerticalAlignment="Center" Background="#FFCC9C9C"/>
+                <TextBlock x:Name="tb_XP" Text="XP" Grid.Column="1" Margin="10,10,10,10" TextAlignment="Center" VerticalAlignment="Center" Background="#FFCC9C9C"/>
+                <TextBlock x:Name="tb_Gold" Text="Gold" Grid.Column="2" Margin="10,10,10,10" TextAlignment="Center" VerticalAlignment="Center" Background="#FFCC9C9C"/>
+            </Grid>
 
-        <DataGrid x:Name="dtgrd_Inventory" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding PlayerInventory}"
+            <DataGrid x:Name="dtgrd_Inventory" Grid.Row="1" ItemsSource="{Binding PlayerInventory}"
                   Margin="10,10,10,10" Padding="0,0,0,0" ColumnWidth="*"
                   SelectionChanged="dtgrd_Inventory_SelectionChanged" SelectionUnit="FullRow" 
                   AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Rarity" Binding="{Binding Rarity}" />
-                <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
-                <DataGridTextColumn Header="Source" Binding="{Binding Source}" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Value(Tsp)" Binding="{Binding Value, StringFormat=c}" />
-                <DataGridTextColumn Header="Count" Binding="{Binding Count}" />
-                <DataGridTextColumn Header="Unit" Binding="{Binding CountUnit}" />
-            </DataGrid.Columns>
-        </DataGrid>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Rarity" Binding="{Binding Rarity}" />
+                    <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                    <DataGridTextColumn Header="Source" Binding="{Binding Source}" />
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Value(Tsp)" Binding="{Binding Value, StringFormat=c}" />
+                    <DataGridTextColumn Header="Count" Binding="{Binding Count, Converter={StaticResource ResourceKey=fractionConverter}, ConverterParameter=true}"/>
+                    <DataGridTextColumn Header="Unit" Binding="{Binding CountUnit}" />
+                </DataGrid.Columns>
+            </DataGrid>
 
-        <Grid x:Name="grd_Item" Grid.Column="3" Grid.Row="1" Margin="10,10,10,10" Background="#FFBB8787">
+            <Button Content="Back" Grid.Row="2" Margin="10,10,10,10" Click="Back_Click"/>
+        </Grid>
+
+        <Grid x:Name="grd_Item" Grid.Column="1" Margin="10,10,10,10" Background="#FFBB8787">
             <Grid.RowDefinitions>
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="1*"/>
@@ -97,8 +98,5 @@
             <TextBlock x:Name="tb_Desc" Grid.Row="3" Margin="10,10,10,10" TextWrapping="Wrap" Text="Item Desc"  Background="#FFE9D8D8"/>
 
         </Grid>
-
-        <Button Content="Back" Grid.Column="1" Grid.Row="2" Margin="10,10,10,10" Click="Back_Click"/>
-
     </Grid>
 </Page>

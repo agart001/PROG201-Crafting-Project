@@ -16,6 +16,7 @@
     <None Remove="images\item\consumable\speedpotion.png" />
     <None Remove="images\item\consumable\water.png" />
     <None Remove="images\item\material\ashwagandha.png" />
+    <None Remove="images\item\material\camellia.png" />
     <None Remove="images\item\material\chamomile.png" />
     <None Remove="images\item\material\cinnamon.png" />
     <None Remove="images\item\material\garlic.png" />
@@ -23,6 +24,7 @@
     <None Remove="images\item\material\lavender.png" />
     <None Remove="images\item\material\lemonbalm.png" />
     <None Remove="images\item\material\redpepper.png" />
+    <None Remove="images\title.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +49,9 @@
     <Content Include="images\item\material\ashwagandha.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="images\item\material\camellia.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="images\item\material\chamomile.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -66,6 +71,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="images\item\material\redpepper.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\title.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

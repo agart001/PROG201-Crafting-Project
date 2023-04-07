@@ -105,7 +105,7 @@ namespace PROG201_Crafting_Project.pages
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.UINav.UpdatePage("start");
+            MainWindow.UINav.UpdatePage("menu");
         }
     }
 }

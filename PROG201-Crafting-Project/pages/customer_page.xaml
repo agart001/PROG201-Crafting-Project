@@ -57,7 +57,7 @@
                 <DataGridTextColumn Header="Source" Binding="{Binding Source}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Value(Tsp)" Binding="{Binding Value, StringFormat=c}" />
-                <DataGridTextColumn Header="Count" Binding="{Binding Count}" />
+                <DataGridTextColumn Header="Count" Binding="{Binding Count, Converter={StaticResource ResourceKey=fractionConverter}, ConverterParameter=true}"/>
                 <DataGridTextColumn Header="Unit" Binding="{Binding CountUnit}" />
             </DataGrid.Columns>
         </DataGrid>
@@ -71,7 +71,7 @@
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Value(Tsp)" Binding="{Binding Value}" />
-                <DataGridTextColumn Header="Count" Binding="{Binding Count}" />
+                <DataGridTextColumn Header="Count" Binding="{Binding Count, Converter={StaticResource ResourceKey=fractionConverter}, ConverterParameter=true}"/>
                 <DataGridTextColumn Header="Unit" Binding="{Binding CountUnit}" />
             </DataGrid.Columns>
         </DataGrid>

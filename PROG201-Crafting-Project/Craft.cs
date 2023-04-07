@@ -82,8 +82,6 @@ namespace PROG201_Crafting_Project
 
             int seed = Rand.Next(0, 10);
 
-            seed = 8;
-
             if(seed <= 7)
             {
                 item.Rarity = base_rarity;

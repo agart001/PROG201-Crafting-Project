@@ -19,6 +19,8 @@ namespace PROG201_Crafting_Project
     {
         public static Random Rand = new Random();
 
+        public static void SetRandomSeed(double seed) => Rand = new Random((int)seed);
+
         public static void CloseApp() => Environment.Exit(0);
 
         public static string ConvertToLower(string str) { return str.ToLower(); }
@@ -200,6 +202,5 @@ namespace PROG201_Crafting_Project
 
             return Items;
         }
-
     }
 }

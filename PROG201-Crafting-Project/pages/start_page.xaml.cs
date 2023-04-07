@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static PROG201_Crafting_Project.Utility;
 
 namespace PROG201_Crafting_Project.pages
 {
@@ -23,30 +24,33 @@ namespace PROG201_Crafting_Project.pages
         public start_page()
         {
             InitializeComponent();
+
+            grd_Menu.Visibility = Visibility.Hidden;
         }
 
-        private void Craft_Click(object sender, RoutedEventArgs e)
+        private void Set_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Game.Player.SetBoundRecipes(MainWindow.Game.Crafter);
-            MainWindow.UINav.UpdatePage("craft");
+            MainWindow.Game.Player.Name=input_Name.Text;
+
+            SetRandomSeed(Convert.ToDouble(input_Seed.Text));
+
+            MessageBox.Show
+            (
+                "Name Set To:\n\r" +
+                "------------------\n\r" +
+                $"Name: {MainWindow.Game.Player.Name}\n\r" +
+                $"Seed #: {input_Seed.Text}\n\r" +
+                "------------------"
+            );
+
+            btn_Set.Visibility = Visibility.Hidden;
+            grd_Set.Visibility = Visibility.Hidden;
+            grd_Menu.Visibility = Visibility.Visible;
         }
 
-        private void Inventory_Click(object sender, RoutedEventArgs e)
+        private void Menu_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Game.Player.SetBoundInventory();
-            MainWindow.UINav.UpdatePage("inventory");
-        }
-
-        private void Supply_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow.Game.Player.SetBoundInventory();
-            MainWindow.UINav.UpdatePage("supply");
-        }
-
-        private void Customer_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow.Game.Player.SetBoundInventory();
-            MainWindow.UINav.UpdatePage("customer");
+            MainWindow.UINav.UpdatePage("menu");
         }
     }
 }

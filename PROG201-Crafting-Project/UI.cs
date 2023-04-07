@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using static PROG201_Crafting_Project.Fraction;
 
 namespace PROG201_Crafting_Project
 {
@@ -62,7 +63,7 @@ namespace PROG201_Crafting_Project
             string type = item.Type.ToString();
 
             double value = item.Value;
-            string count = item.Count.ToString();
+            double count = item.Count;
 
             image.Source = item.Image;
 
@@ -70,7 +71,7 @@ namespace PROG201_Crafting_Project
             blocks[1].Text = $"{rarity}";
             blocks[2].Text = $"{type}";
             blocks[3].Text = $"{value:C}";
-            blocks[4].Text = $"{count}";
+            blocks[4].Text = $"{Fraction.Parse(count)}";
             blocks[5].Text = $"{item.CountUnit}";
             blocks[6].Text = $"Description:     {item.Desc}";
         }

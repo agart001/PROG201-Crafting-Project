@@ -43,6 +43,11 @@
 				  name="Red Pepper"
 				  desc="Capsicum annum. Red pepper is a member of the nightshade family and is closely related to other popular spices such as paprika, cayenne pepper, and chili powder. Dried red pepper has a vibrant red color and a spicy, pungent flavor."
 				  value=".2" count=".25" countunit="Tsp"/>
+
+			<item rarity="0" type="0" source="0" image="camellia.png"
+				  name="Camellia"
+				  desc="Camellia sinensis. S plant species that is widely known for its leaves being used to produce tea, including green tea, black tea, white tea, oolong tea, and others. When the leaves are harvested, they can either be used fresh or dried, which is the most common way to preserve them for long-term use"
+				  value=".1" count="1" countunit="Tsp"/>
 			
 		</items>
 	</player>
@@ -90,6 +95,11 @@
 				  name="Red Pepper"
 				  desc="Capsicum annum. Red pepper is a member of the nightshade family and is closely related to other popular spices such as paprika, cayenne pepper, and chili powder. Dried red pepper has a vibrant red color and a spicy, pungent flavor."
 				  value=".2" count="5" countunit="Tbsp"/>
+
+			<item rarity="0" type="0" source="0" image="camellia.png"
+				  name="Camellia"
+				  desc="Camellia sinensis. S plant species that is widely known for its leaves being used to produce tea, including green tea, black tea, white tea, oolong tea, and others. When the leaves are harvested, they can either be used fresh or dried, which is the most common way to preserve them for long-term use"
+				  value=".10" count="5" countunit="Tbsp"/>
 		</items>
 	</trader>
 
