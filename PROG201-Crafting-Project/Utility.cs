@@ -25,6 +25,77 @@ namespace PROG201_Crafting_Project
 
         public static string ConvertToLower(string str) { return str.ToLower(); }
 
+        public static bool IsDigit(string input)
+        {
+            char[] char_array = input.ToArray();
+
+            bool digit = false;
+            bool[] digits = new bool[char_array.Length];
+            int index = 0;
+
+            foreach (char c in char_array)
+            {
+                if (Char.IsDigit(c)) digits[index] = true;
+
+                index++;
+            }
+
+            digit = digits.All(i => i == true);
+
+            return digit;
+        }
+
+        public static bool IsDouble(string input)
+        {
+            char[] char_array = input.ToArray();
+
+            char_array = char_array.Where(c => c != '.').ToArray();
+
+            bool dbl = false;
+            bool[] digits = new bool[char_array.Length];
+
+            int dotindex = 0;
+            int index = 0;
+
+            foreach (char c in char_array)
+            {
+                if (Char.IsDigit(c)) digits[index] = true;
+
+                if(c == '.') dotindex = index;
+
+                index++;
+            }
+
+            dbl = digits.All(i => i == true);
+
+            return dbl;
+        }
+
+        public static bool IsFraction(string input)
+        {
+            char[] char_array = input.ToArray();
+            char_array = char_array.Where(c => c != '/' && c != ' ').ToArray();
+
+            bool fraction = false;
+            bool[] digits = new bool[char_array.Length];
+
+            int slashindex = 0;
+            int index = 0;
+
+            foreach (char c in char_array)
+            {
+                if (Char.IsDigit(c)) digits[index] = true;
+
+                if (c == '/') slashindex = index;
+
+                index++;
+            }
+
+            fraction = digits.All(i => i == true);
+
+            return fraction;
+        }
+
         public static bool CompareItems(Item item_1, Item item_2, int type)
         {
             bool result = false;

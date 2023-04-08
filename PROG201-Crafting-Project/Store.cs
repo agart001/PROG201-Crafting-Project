@@ -189,10 +189,16 @@ namespace PROG201_Crafting_Project
             Grid item_grid, TextBox buy_input)
         {
             Item item = seller_grid.SelectedItem as Item;
-            double amount = Convert.ToDouble(buy_input.Text);
 
-            //Unit check, no unit smaller than tsp
-            if (item.CountUnit.ToLower() == "tsp" && amount < 0) return;
+            double amount = ui.GetInput(buy_input);
+
+            if (amount < 0)
+            {
+                seller_grid.SelectedIndex = -1;
+
+                item_grid.Visibility = Visibility.Hidden;
+                return;
+            }
 
 
             BuyItem(buyer, seller, item, amount);

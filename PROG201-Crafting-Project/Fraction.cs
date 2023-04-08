@@ -5,6 +5,7 @@ using System.Text;
 
 namespace PROG201_Crafting_Project
 {
+    // Source: https://onedrive.live.com/?cid=860B5379E3318DDA&id=860B5379E3318DDA%21394&parId=860B5379E3318DDA%21314&o=OneUp
     /// <summary>
     /// Represents a rational number
     /// </summary>
@@ -32,6 +33,12 @@ namespace PROG201_Crafting_Project
         public static Fraction Parse(double d)
         {
             return ApproximateFraction(d, 0.0000001d);
+        }
+
+        //Added by Alex Gartner
+        public static Fraction StringToFrac(string str)
+        {
+            return StrGetFrac(str);
         }
 
         public double? ToDouble()
@@ -137,6 +144,33 @@ namespace PROG201_Crafting_Project
             }
 
             return new Fraction(positive, wholeNumber, numerator, denominator);
+        }
+        
+        //Added by Alex Gartner
+        private static Fraction StrGetFrac(string str)
+        {
+            List<char> chars = str.ToList();
+
+            int whole = 0;
+
+            if (chars.Contains(' '))
+            {
+                char[] whole_chars = chars.TakeWhile(c => c != ' ').ToArray();
+                chars = chars.SkipWhile(c => c != ' ').ToList();
+                whole = Convert.ToInt32(new string(whole_chars));
+            }
+
+            char[] numer_chars = chars.TakeWhile(c => c != '/').ToArray();
+            numer_chars = numer_chars.Where(c => c != ' ').ToArray();
+            chars = chars.SkipWhile(c => c != '/').ToList();
+
+            char[] denom_chars = chars.Where(c => c != '/').ToArray(); ;
+
+
+            int numer = Convert.ToInt32(new string(numer_chars));
+            int denom = Convert.ToInt32(new string(denom_chars));
+
+            return new Fraction(true, whole, numer, denom);
         }
     }
 }

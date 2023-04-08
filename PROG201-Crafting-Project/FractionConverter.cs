@@ -7,6 +7,8 @@ using System.Text.RegularExpressions;
 
 namespace PROG201_Crafting_Project
 {
+    // Source: https://onedrive.live.com/?cid=860B5379E3318DDA&id=860B5379E3318DDA%21394&parId=860B5379E3318DDA%21314&o=OneUp
+
     [ValueConversion(typeof(double?), typeof(String))]
     public class FractionConverter : IValueConverter
     {

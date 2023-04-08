@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using static PROG201_Crafting_Project.Fraction;
+using static PROG201_Crafting_Project.Utility;
 
 namespace PROG201_Crafting_Project
 {
@@ -42,6 +43,35 @@ namespace PROG201_Crafting_Project
             blocks[0].Text = $"Name: {character.Name}";
             blocks[1].Text = $"XP: {character.XP}";
             blocks[2].Text = $"Gold: {character.Gold:C}";
+        }
+
+        //Store Input
+        public double GetInput(TextBox textbox)
+        {
+            string input = textbox.Text;
+
+            if(IsDigit(input) || IsDouble(input))
+            {
+                return Convert.ToDouble(input);
+            }
+
+            else if (IsFraction(input))
+            {
+                MessageBox.Show("fraction!");
+
+                int spaces = input.Count(c => c == ' ');
+
+                if (spaces > 1) return -1.0;
+
+                Fraction frac = Fraction.StringToFrac(input);
+                double dbl = (double)frac.ToDouble();
+                return dbl;
+            }
+
+            else
+            {
+                return -1.0;
+            }
         }
 
         //Set subgrid from datagrid -- display recipe ingredients
