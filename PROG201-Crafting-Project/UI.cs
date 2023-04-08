@@ -45,7 +45,7 @@ namespace PROG201_Crafting_Project
             blocks[2].Text = $"Gold: {character.Gold:C}";
         }
 
-        //Store Input
+        //Store Input - handle different input cases
         public double GetInput(TextBox textbox)
         {
             string input = textbox.Text;
@@ -57,8 +57,6 @@ namespace PROG201_Crafting_Project
 
             else if (IsFraction(input))
             {
-                MessageBox.Show("fraction!");
-
                 int spaces = input.Count(c => c == ' ');
 
                 if (spaces > 1) return -1.0;
