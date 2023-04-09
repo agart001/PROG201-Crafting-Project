@@ -46,8 +46,13 @@
 
 			<item rarity="0" type="0" source="0" image="camellia.png"
 				  name="Camellia"
-				  desc="Camellia sinensis. S plant species that is widely known for its leaves being used to produce tea, including green tea, black tea, white tea, oolong tea, and others. When the leaves are harvested, they can either be used fresh or dried, which is the most common way to preserve them for long-term use"
+				  desc="Camellia sinensis. A plant species that is widely known for its leaves being used to produce tea, including green tea, black tea, white tea, oolong tea, and others. When the leaves are harvested, they can either be used fresh or dried, which is the most common way to preserve them for long-term use"
 				  value=".1" count="1" countunit="Tsp"/>
+
+			<item rarity="0" type="0" source="0" image="licorice.png"
+				  name="Licorice"
+				  desc="Glycyrrhiza glabra. Licorice is widely used in traditional medicine systems and as a flavoring agent in food and beverages. Dried licorice has a sweet and slightly woody flavor with a distinctive aroma. It is commonly used as an ingredient in herbal teas and in herbal remedies for coughs, sore throat, and digestive issues."
+				  value=".3" count=".0625" countunit="Tsp"/>
 			
 		</items>
 	</player>

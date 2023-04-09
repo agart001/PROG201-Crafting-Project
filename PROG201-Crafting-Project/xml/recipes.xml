@@ -21,6 +21,17 @@
 			<ingredient rarity="0" type="1" source="0" name="Water" desc="" value=".05" count="1" countunit="Cup"/>
 		</ingredients>
 	</recipe>
+
+	<recipe rarity="1" type="1" source="2" image="blacktea.png"
+			name="Black Tea"
+			desc="Black Tea. Made from the leaves of the Camellia sinensis plant, which are withered, rolled, and oxidized before being dried and packaged. Black tea has a strong, bold flavor with a slightly bitter taste and a hint of sweetness."
+			value=".15" xp="30"
+			count="1" countunit="Cup">
+		<ingredients>
+			<ingredient rarity="0" type="0" source="0" name="Camellia" desc="" value=".1" count="1" countunit="Tsp"/>
+			<ingredient rarity="0" type="1" source="0" name="Water" desc="" value=".05" count="1" countunit="Cup"/>
+		</ingredients>
+	</recipe>
 	
 	<recipe rarity="2" type="1" source="2" image="sleeppotion.png"
 			name="Sleeping Potion"
