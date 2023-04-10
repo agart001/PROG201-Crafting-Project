@@ -54,14 +54,11 @@ namespace PROG201_Crafting_Project
             bool dbl = false;
             bool[] digits = new bool[char_array.Length];
 
-            int dotindex = 0;
             int index = 0;
 
             foreach (char c in char_array)
             {
                 if (Char.IsDigit(c)) digits[index] = true;
-
-                if(c == '.') dotindex = index;
 
                 index++;
             }
@@ -79,14 +76,11 @@ namespace PROG201_Crafting_Project
             bool fraction = false;
             bool[] digits = new bool[char_array.Length];
 
-            int slashindex = 0;
             int index = 0;
 
             foreach (char c in char_array)
             {
                 if (Char.IsDigit(c)) digits[index] = true;
-
-                if (c == '/') slashindex = index;
 
                 index++;
             }

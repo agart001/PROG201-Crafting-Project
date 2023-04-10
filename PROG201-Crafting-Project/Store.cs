@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -109,10 +111,11 @@ namespace PROG201_Crafting_Project
             //Buyer pays cost, seller earns cost
             ApplyCost(buyer, seller, cost);
 
+            
         }
 
         //Calculate player profit margin
-        void ProfitMargin(List<Recipe> recipes, Item item)
+        void ProfitMargin(List<Recipe> recipes, Item item, double amount)
         {
             //Find recipe based on item
             Recipe recipe = recipes.Find(i=> i.Result.Name == item.Name);
@@ -131,8 +134,10 @@ namespace PROG201_Crafting_Project
             }
 
             //Calc profit using item value(per tsp) and ingredient cost(per tsp)
+            amount = TspAmount(item, amount);
             item.ConvertToTsp();
-            double item_val = item.Value * item.Count;
+            
+            double item_val = item.Value * amount;
 
             cost = Math.Round(cost,2);
             item_val = Math.Round(item_val,2);
@@ -140,7 +145,10 @@ namespace PROG201_Crafting_Project
             double profit = item_val - cost;
             double percent = Math.Round((profit / item_val) * 100, 2);
 
-            item.ConvertUnitToHigher(); 
+            item.ConvertUnitToHigher();
+
+            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+            culture.NumberFormat.CurrencyNegativePattern = 1;
 
             MessageBox.Show
             (
@@ -148,7 +156,7 @@ namespace PROG201_Crafting_Project
                 "--------------------\n\r" +
                 $"Cost: -{cost:C}\n\r" +
                 $"Price: {item_val:C}\n\r" +
-                $"Profit: +{profit:C}\n\r" +
+                $"Profit: {String.Format(culture, "{0:C}", profit)}\n\r" +
                 $"Percentage: {percent}%"
             );
         }
@@ -200,17 +208,17 @@ namespace PROG201_Crafting_Project
                 return;
             }
 
+            //Display player's profit margin
+            if (seller.Type == Character.CharType.Player)
+            {
+                Craft craft = new Craft();
+                ProfitMargin(craft.Recipes, item, amount);
+            }
+
 
             BuyItem(buyer, seller, item, amount);
 
-            //Display player's profit margin
-            if(seller.Type == Character.CharType.Player)
-            {
-                Craft craft = new Craft();
-                ProfitMargin(craft.Recipes, item);
-            }
             
-
             buyer.SetBoundInventory();
             seller.SetBoundInventory();
 

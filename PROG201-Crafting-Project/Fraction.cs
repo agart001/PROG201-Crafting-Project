@@ -162,8 +162,8 @@ namespace PROG201_Crafting_Project
 
             char[] numer_chars = chars.TakeWhile(c => c != '/').ToArray();
             numer_chars = numer_chars.Where(c => c != ' ').ToArray();
-            chars = chars.SkipWhile(c => c != '/').ToList();
 
+            chars = chars.SkipWhile(c => c != '/').ToList();
             char[] denom_chars = chars.Where(c => c != '/').ToArray(); ;
 
 

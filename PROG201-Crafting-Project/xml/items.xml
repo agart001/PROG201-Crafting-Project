@@ -2,7 +2,7 @@
 <AllItems>
 	<player>
 		<items>
-			<item rarity="0" type="1" source="1" image="water.png" name="Water" desc="A vessel containing water" value=".05" count=".5" countunit="Cup"></item>
+			<item rarity="0" type="1" source="1" image="water.png" name="Water" desc="A vessel containing water" value=".05" count="4" countunit="Cup"></item>
 			
 			<item rarity="0" type="0" source="0" image="chamomile.png"
 				  name="Chamomile"
