@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <recipes>
-	<recipe rarity="1" type="1" source="2" image="chamomiletea.png" 
+	<recipe rarity="1" type="1" source="2" image="consumable.png" 
 			name="Chamomile Tea" 
 			desc="Chamomile tea. It has a golden yellow color and a mild, slightly sweet, and floral taste. It is often consumed before bed to help promote relaxation and improve sleep quality. "
 			value=".15" xp="30"
@@ -11,7 +11,7 @@
 		</ingredients>
 	</recipe>
 
-	<recipe rarity="1" type="1" source="2" image="gingertea.png"
+	<recipe rarity="1" type="1" source="2" image="consumable.png"
 			name="Ginger Tea"
 			desc="Ginger Tea. A popular herbal infusion made from the root of the ginger plant, known for its spicy and aromatic flavor. The resulting infusion has a warm and slightly pungent scent, with a hint of sweetness."
 			value=".2" xp="35"
@@ -22,7 +22,7 @@
 		</ingredients>
 	</recipe>
 
-	<recipe rarity="1" type="1" source="2" image="blacktea.png"
+	<recipe rarity="1" type="1" source="2" image="consumable.png"
 			name="Black Tea"
 			desc="Black Tea. Made from the leaves of the Camellia sinensis plant, which are withered, rolled, and oxidized before being dried and packaged. Black tea has a strong, bold flavor with a slightly bitter taste and a hint of sweetness."
 			value=".15" xp="30"
@@ -32,21 +32,33 @@
 			<ingredient rarity="0" type="1" source="0" name="Water" desc="" value=".05" count="1" countunit="Cup"/>
 		</ingredients>
 	</recipe>
+
+	<recipe rarity="3" type="1" source="2" image="consumable.png"
+			name="Super Tea"
+			desc="Super Tea. Made from the multiple teas, a combination of their flavors and effects. Super Tea has a strong, bold flavor with a strong bitter taste."
+			value=".4" xp="40"
+			count="1" countunit="Cup">
+		<ingredients>
+			<ingredient rarity="1" type="1" source="2" name="Chamomile Tea" desc="" value=".10" count="1" countunit="Cup"/>
+			<ingredient rarity="1" type="1" source="2" name="Ginger Tea" desc="" value=".2" count="1" countunit="Cup"/>
+			<ingredient rarity="1" type="1" source="2" name="Black Tea" desc="" value=".15" count="1" countunit="Cup"/>
+		</ingredients>
+	</recipe>
 	
-	<recipe rarity="2" type="1" source="2" image="sleeppotion.png"
+	<recipe rarity="2" type="1" source="2" image="consumable.png"
 			name="Sleeping Potion"
 			desc="Sleeping Potion. A powerful brew, made from a combination of herbs and teas. Anyone who consumes it will instantly fall into dreamless sleep until the effect wares off."
 			value=".3" xp="40"
 			count="2" countunit="Cup">
 		<ingredients>
 			<ingredient rarity="1" type="1" source="2" name="Chamomile Tea" desc="" value=".10" count="1" countunit="Cup"/>
-			<ingredient rarity="0" type="0" source="0" name="Ashwagandha" desc="" value=".10" count=".0625" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Ashwagandha" desc="" value=".2" count=".0625" countunit="Tsp"/>
 			<ingredient rarity="0" type="0" source="0" name="Lavendar" desc="" value=".10" count=".25" countunit="Tsp"/>
 			<ingredient rarity="0" type="0" source="0" name="Lemon Balm" desc="" value=".10" count=".25" countunit="Tsp"/>
 		</ingredients>
 	</recipe>
 
-	<recipe rarity="2" type="1" source="2" image="speedpotion.png"
+	<recipe rarity="2" type="1" source="2" image="consumable.png"
 		name="Speed Potion"
 		desc="Speed Potion. A powerful brew, made from a combination of herbs and teas. Anyone who consumes it will instantly become 3x faster until the effect wares off."
 		value=".4" xp="45"
@@ -56,6 +68,32 @@
 			<ingredient rarity="0" type="0" source="0" name="Garlic" desc="" value=".25" count=".0625" countunit="Tsp"/>
 			<ingredient rarity="0" type="0" source="0" name="Cinnamon" desc="" value=".2" count=".25" countunit="Tsp"/>
 			<ingredient rarity="0" type="0" source="0" name="Red Pepper" desc="" value=".2" count=".25" countunit="Tsp"/>
+		</ingredients>
+	</recipe>
+
+	<recipe rarity="2" type="1" source="2" image="consumable.png"
+		name="Stealth Potion"
+		desc="Stealth Potion. A powerful brew, made from a combination of herbs and teas. Anyone who consumes it will instantly become 3x sleathier until the effect wares off."
+		value=".45" xp="50"
+		count="2" countunit="Cup">
+		<ingredients>
+			<ingredient rarity="1" type="1" source="2" name="Black Tea" desc="" value=".15" count="1" countunit="Cup"/>
+			<ingredient rarity="0" type="0" source="0" name="Licorice" desc="" value=".3" count=".0625" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Ashwagandha" desc="" value=".2" count=".25" countunit="Tsp"/>
+			<ingredient rarity="0" type="0" source="0" name="Garlic" desc="" value=".25" count=".25" countunit="Tsp"/>
+		</ingredients>
+	</recipe>
+
+	<recipe rarity="3" type="1" source="2" image="consumable.png"
+		name="Super Potion"
+		desc="Super Potion. A extremly powerful brew, made from a combination of all teas and potions. Anyone who consumes it will instantly become living god for three minutes."
+		value=".75" xp="80"
+		count="3" countunit="Cup">
+		<ingredients>
+			<ingredient rarity="3" type="1" source="2" name="Super Tea" desc="" value=".4" count="1" countunit="Cup"/>
+			<ingredient rarity="2" type="1" source="2" name="Sleep Potion" desc="" value=".3" count="1" countunit="Cup"/>
+			<ingredient rarity="2" type="1" source="2" name="Speed Potion" desc="" value=".4" count="1" countunit="Cup"/>
+			<ingredient rarity="2" type="1" source="2" name="Stealth Potion" desc="" value=".45" count="1" countunit="Cup"/>
 		</ingredients>
 	</recipe>
 	
